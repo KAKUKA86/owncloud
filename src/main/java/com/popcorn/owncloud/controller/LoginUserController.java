@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -28,15 +29,22 @@ public class LoginUserController {
     @Resource
     private AdministratorService administratorService;
 
+    @RequestMapping("/index")
+    public String index(Model model) {
+        return "index";
+    }
+
     @RequestMapping("/login")
-    public String adminLoginPage(Model model) {
+    public String login(Model model) {
         return "login";
     }
 
     /**
-     * 登录验证模块
+     * 登录验证模块(写入时间戳功能暂未实现)
      */
+
     @PostMapping("/userLogin")
+    @ResponseBody
     public String userLogin(HttpServletRequest request) {
         String userName = request.getParameter("userName");
         String userPassword = request.getParameter("userPassword");
@@ -67,9 +75,23 @@ public class LoginUserController {
     }
 
     /**
+     * 普通用户注册模块
+     */
+    @PostMapping("/userSignIn")
+    @ResponseBody
+    public String userSignIn(NormalUser normalUser) {
+        normalUser.setUserRegisterTimestamp(System.currentTimeMillis());
+        Integer status = normalUserService.UserSingIn(normalUser);
+        JSONObject result = new JSONObject();
+        if (status > 0) result.put("state","success");
+        return result.toJSONString();
+    }
+
+    /**
      * 管理员验证模块
      */
     @PostMapping("/adminLogin")
+    @ResponseBody
     public String adminLogin(HttpServletRequest request) {
         String adminName = request.getParameter("adminName");
         String adminPassword = request.getParameter("adminPassword");
@@ -93,7 +115,7 @@ public class LoginUserController {
         }catch (Exception e) {
             result.put("state","error");
             return result.toJSONString();
-        }·4
+        }
     }
 
 }

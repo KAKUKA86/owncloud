@@ -8,10 +8,10 @@ public class NormalUser {
     Integer userID;
     String userPassword;
     String userName;
-    Integer userPhoneNumber;
-    Integer userLastLoginTimestamp;
-    Integer userRegisterTimestamp;
-    Integer userUpdateTime;
+    Long userPhoneNumber;
+    Long userLastLoginTimestamp;
+    Long userRegisterTimestamp;
+    Long userUpdateTime;
 
     public Integer getUserID() {
         return userID;
@@ -37,35 +37,35 @@ public class NormalUser {
         this.userName = userName;
     }
 
-    public Integer getUserPhoneNumber() {
+    public Long getUserPhoneNumber() {
         return userPhoneNumber;
     }
 
-    public void setUserPhoneNumber(Integer userPhoneNumber) {
+    public void setUserPhoneNumber(Long userPhoneNumber) {
         this.userPhoneNumber = userPhoneNumber;
     }
 
-    public Integer getUserLastLoginTimestamp() {
+    public Long getUserLastLoginTimestamp() {
         return userLastLoginTimestamp;
     }
 
-    public void setUserLastLoginTimestamp(Integer userLastLoginTimestamp) {
+    public void setUserLastLoginTimestamp(Long userLastLoginTimestamp) {
         this.userLastLoginTimestamp = userLastLoginTimestamp;
     }
 
-    public Integer getUserRegisterTimestamp() {
+    public Long getUserRegisterTimestamp() {
         return userRegisterTimestamp;
     }
 
-    public void setUserRegisterTimestamp(Integer userRegisterTimestamp) {
+    public void setUserRegisterTimestamp(Long userRegisterTimestamp) {
         this.userRegisterTimestamp = userRegisterTimestamp;
     }
 
-    public Integer getUserUpdateTime() {
+    public Long getUserUpdateTime() {
         return userUpdateTime;
     }
 
-    public void setUserUpdateTime(Integer userUpdateTime) {
+    public void setUserUpdateTime(Long userUpdateTime) {
         this.userUpdateTime = userUpdateTime;
     }
 }

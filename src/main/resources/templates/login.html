@@ -1,91 +1,61 @@
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Probably the most complete UI kit out there. Multiple functionalities and controls added,  extended color palette and beautiful typography, designed as its own extended version of Bootstrap at  the highest level of quality.                             ">
-    <meta name="author" content="Webpixels">
-    <title>Boomerang UI Kit - Free Bootstrap Framework by Webpixels</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
-    <!-- Theme CSS -->
-    <link type="text/css" href="/assets/css/theme.css" rel="stylesheet">
-    <!-- Demo CSS - No need to use these in your project -->
-    <link type="text/css" href="/assets/css/demo.css" rel="stylesheet">
+<head th:replace="head">
+    <title>爆米花netdisk</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-dark py-4">
-    <div class="container">
-        <a class="navbar-brand" href="../"><strong>Boomerang</strong> UI Kit</a>
-        <button class="navbar-toggler" type="button" data-action="offcanvas-open" data-target="#navbar_main" aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse offcanvas-collapse" id="navbar_main">
-            <ul class="navbar-nav ml-auto align-items-lg-center">
-                <h6 class="dropdown-header font-weight-600 d-lg-none px-0">Menu</h6>
-                <li class="nav-item ">
-                    <a class="nav-link" href="../index.html">Overview</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbar_main_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                    <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
-                        <a class="dropdown-item" href="../pages/homepage.html">Homepage</a>
-                        <a class="dropdown-item" href="../pages/about.html">About us</a>
-                        <a class="dropdown-item" href="../pages/sign-in.html">Sign in</a>
-                        <a class="dropdown-item" href="../pages/contact.html">Contact</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/docs/introduction.html">Docs</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://github.com/webpixels/boomerang-ui-kit/archive/master.zip" target="_blank" class="nav-link d-lg-none">Download Free</a>
-                    <a href="https://github.com/webpixels/boomerang-ui-kit/archive/master.zip" target="_blank" class="btn btn-sm bg-white d-none d-lg-inline-flex">Download Free</a>
-                </li>
-                <div class="dropdown-divider d-lg-none my-4"></div>
-                <h6 class="dropdown-header font-weight-600 d-lg-none px-0">Social Media</h6>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="https://instagram.com/webpixelsofficial/" target="_blank"><i class="fab fa-instagram"></i><span class="ml-2 d-lg-none">Instagram</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="https://web.facebook.com/webpixels" target="_blank"><i class="fab fa-facebook"></i><span class="ml-2 d-lg-none">Facebook</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="https://dribbble.com/webpixels" target="_blank"><i class="fab fa-dribbble"></i><span class="ml-2 d-lg-none">Dribbble</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="https://github.com/webpixels" target="_blank"><i class="fab fa-github"></i><span class="ml-2 d-lg-none">Github</span></a>
-                </li>
-            </ul>
-        </div>
+    <a class = "navbar-brand" href="#" >PopcornetDisk</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_example_1"
+            aria-controls="navbar_example_1" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse offcanvas-collapse" id="navbar_main">
+        <ul class="navbar-nav ml-auto align-items-lg-center">
+
+            <div class="dropdown-divider d-lg-none my-4"></div>
+            <h6 class="dropdown-header font-weight-600 d-lg-none px-0">Social Media</h6>
+            <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="https://instagram.com/webpixelsofficial/" target="_blank"><svg class="svg-inline--fa fa-instagram fa-w-14" aria-hidden="true" data-prefix="fab" data-icon="instagram" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg><!-- <i class="fab fa-instagram"></i> --><span class="ml-2 d-lg-none">Instagram</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="https://web.facebook.com/webpixels" target="_blank"><svg class="svg-inline--fa fa-facebook fa-w-14" aria-hidden="true" data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z"></path></svg><!-- <i class="fab fa-facebook"></i> --><span class="ml-2 d-lg-none">Facebook</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="https://dribbble.com/webpixels" target="_blank"><svg class="svg-inline--fa fa-dribbble fa-w-16" aria-hidden="true" data-prefix="fab" data-icon="dribbble" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119.252 8 8 119.252 8 256s111.252 248 248 248 248-111.252 248-248S392.748 8 256 8zm163.97 114.366c29.503 36.046 47.369 81.957 47.835 131.955-6.984-1.477-77.018-15.682-147.502-6.818-5.752-14.041-11.181-26.393-18.617-41.614 78.321-31.977 113.818-77.482 118.284-83.523zM396.421 97.87c-3.81 5.427-35.697 48.286-111.021 76.519-34.712-63.776-73.185-116.168-79.04-124.008 67.176-16.193 137.966 1.27 190.061 47.489zm-230.48-33.25c5.585 7.659 43.438 60.116 78.537 122.509-99.087 26.313-186.36 25.934-195.834 25.809C62.38 147.205 106.678 92.573 165.941 64.62zM44.17 256.323c0-2.166.043-4.322.108-6.473 9.268.19 111.92 1.513 217.706-30.146 6.064 11.868 11.857 23.915 17.174 35.949-76.599 21.575-146.194 83.527-180.531 142.306C64.794 360.405 44.17 310.73 44.17 256.323zm81.807 167.113c22.127-45.233 82.178-103.622 167.579-132.756 29.74 77.283 42.039 142.053 45.189 160.638-68.112 29.013-150.015 21.053-212.768-27.882zm248.38 8.489c-2.171-12.886-13.446-74.897-41.152-151.033 66.38-10.626 124.7 6.768 131.947 9.055-9.442 58.941-43.273 109.844-90.795 141.978z"></path></svg><!-- <i class="fab fa-dribbble"></i> --><span class="ml-2 d-lg-none">Dribbble</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="https://github.com/webpixels" target="_blank"><svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> --><span class="ml-2 d-lg-none">Github</span></a>
+            </li>
+        </ul>
     </div>
 </nav>
 <main class="main">
-    <section class="py-xl bg-cover bg-size--cover" style="background-image: url('/assets/images/backgrounds/img-1.jpg')">
-        <span class="mask bg-primary alpha-6"></span>
+    <section class="py-xl bg-cover bg-size--cover" style="background-image: url('/assets/images/backgrounds/back-img-1.jpg')">
+        <span class="mask bg-gradient-dark alpha-3"></span>
         <div class="container d-flex align-items-center no-padding">
             <div class="col">
                 <div class="row justify-content-center">
-                    <div class="col-lg-4">
-                        <div class="card bg-primary text-white">
+                    <div class="col-lg-5">
+                        <div class="card bg-gradient-gray-dark text-white">
                             <div class="card-body">
-                                <button type="button" class="btn btn-primary btn-nobg btn-zoom--hover mb-5">
-                                    <span class="btn-inner--icon"><i class="fas fa-arrow-left"></i></span>
-                                </button>
                                 <span class="clearfix"></span>
                                 <img src="/assets/images/brand/icon.png" style="width: 50px;">
-                                <h4 class="heading h3 text-white pt-3 pb-5">Welcome back,<br>
-                                    login to your account.</h4>
+                                <h4 class="heading h3 text-white pt-5 pb-5">欢迎回来<br>
+                                    现在，请登录你的账号</h4>
                                 <form class="form-primary">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="input_email" placeholder="Your email">
+                                        <input type="text" class="form-control bg-gray-dark" id="input_username" placeholder="你的用户名">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="input_password" placeholder="Password">
+                                        <input type="password" class="form-control bg-gray-dark"id="input_password" placeholder="密码">
                                     </div>
-                                    <div class="text-right mt-4"><a href="#" class="text-white">Forgot password?</a></div>
-                                    <button type="submit" class="btn btn-block btn-lg bg-white mt-4">Sign in</button>
+                                    <div class="row">
+                                        <div class="col-6"><a href="#" class="text-white">忘记了？</a></div>
+                                        <div class="col-6 text-right"><a href="#" class="text-white">新用户？</a></div>
+                                    </div>
+                                    <button type="submit" class="btn btn-block btn-lg bg-white mt-4" onclick="userLogin()">登录</button>
                                 </form>
                             </div>
                         </div>
@@ -94,90 +64,165 @@
             </div>
         </div>
     </section>
-</main>
-<footer class="pt-5 pb-3 footer  footer-dark bg-tertiary">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <div class="pr-lg-5">
-                    <h1 class="heading h6 text-uppercase font-weight-700 mb-3"><strong>Boomerang</strong> UI Kit</h1>
-                    <p>Boomerang is a high quality UI Kit built on top of the well known Bootstrap 4 Framework. This theme was designed as its own extended version of Bootstrap with multiple functionalities and controls added, extended color palette and beautiful typography.</p>
+    <footer class="pt-5 pb-3 footer  footer-dark bg-tertiary">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="pr-lg-5">
+                        <h1 class="heading h6 text-uppercase font-weight-700 mb-3"><strong>Boomerang</strong> UI Kit</h1>
+                        <p>Boomerang is a high quality UI Kit built on top of the well known Bootstrap 4 Framework. This theme was designed as its own extended version of Bootstrap with multiple functionalities and controls added, extended color palette and beautiful typography.</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md">
+                    <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Features</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Cool stuff</a></li>
+                        <li><a class="text-muted" href="#">Random feature</a></li>
+                        <li><a class="text-muted" href="#">Team feature</a></li>
+                        <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                        <li><a class="text-muted" href="#">Another one</a></li>
+                        <li><a class="text-muted" href="#">Last time</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Solutions</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Resource</a></li>
+                        <li><a class="text-muted" href="#">Resource name</a></li>
+                        <li><a class="text-muted" href="#">Another resource</a></li>
+                        <li><a class="text-muted" href="#">Final resource</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Resources</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Business</a></li>
+                        <li><a class="text-muted" href="#">Education</a></li>
+                        <li><a class="text-muted" href="#">Government</a></li>
+                        <li><a class="text-muted" href="#">Gaming</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5 class="heading h6 text-uppercase font-weight-700 mb-3">About</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Team</a></li>
+                        <li><a class="text-muted" href="#">Locations</a></li>
+                        <li><a class="text-muted" href="#">Privacy</a></li>
+                        <li><a class="text-muted" href="#">Terms</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-6 col-md">
-                <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Features</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Cool stuff</a></li>
-                    <li><a class="text-muted" href="#">Random feature</a></li>
-                    <li><a class="text-muted" href="#">Team feature</a></li>
-                    <li><a class="text-muted" href="#">Stuff for developers</a></li>
-                    <li><a class="text-muted" href="#">Another one</a></li>
-                    <li><a class="text-muted" href="#">Last time</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Solutions</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Resource</a></li>
-                    <li><a class="text-muted" href="#">Resource name</a></li>
-                    <li><a class="text-muted" href="#">Another resource</a></li>
-                    <li><a class="text-muted" href="#">Final resource</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Resources</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Business</a></li>
-                    <li><a class="text-muted" href="#">Education</a></li>
-                    <li><a class="text-muted" href="#">Government</a></li>
-                    <li><a class="text-muted" href="#">Gaming</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5 class="heading h6 text-uppercase font-weight-700 mb-3">About</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Team</a></li>
-                    <li><a class="text-muted" href="#">Locations</a></li>
-                    <li><a class="text-muted" href="#">Privacy</a></li>
-                    <li><a class="text-muted" href="#">Terms</a></li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-        <div class="d-flex align-items-center">
+            <hr>
+            <div class="d-flex align-items-center">
           <span class="">
-            &copy; 2018 <a href="https://webpixels.io/" class="footer-link" target="_blank">Webpixels</a>. All rights reserved.
+            © 2018 <a href="https://webpixels.io/" class="footer-link" target="_blank">Webpixels</a>. All rights reserved.
           </span>
-            <ul class="nav ml-lg-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="https://instagram.com/webpixelsofficial" target="_blank"><i class="fab fa-instagram"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://facebook.com/webpixels" target="_blank"><i class="fab fa-facebook"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/webpixels" target="_blank"><i class="fab fa-github"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://dribbble.com/webpixels" target="_blank"><i class="fab fa-dribbble"></i></a>
-                </li>
-            </ul>
+                <ul class="nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="https://instagram.com/webpixelsofficial" target="_blank"><svg class="svg-inline--fa fa-instagram fa-w-14" aria-hidden="true" data-prefix="fab" data-icon="instagram" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg><!-- <i class="fab fa-instagram"></i> --></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://facebook.com/webpixels" target="_blank"><svg class="svg-inline--fa fa-facebook fa-w-14" aria-hidden="true" data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z"></path></svg><!-- <i class="fab fa-facebook"></i> --></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/webpixels" target="_blank"><svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> --></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://dribbble.com/webpixels" target="_blank"><svg class="svg-inline--fa fa-dribbble fa-w-16" aria-hidden="true" data-prefix="fab" data-icon="dribbble" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119.252 8 8 119.252 8 256s111.252 248 248 248 248-111.252 248-248S392.748 8 256 8zm163.97 114.366c29.503 36.046 47.369 81.957 47.835 131.955-6.984-1.477-77.018-15.682-147.502-6.818-5.752-14.041-11.181-26.393-18.617-41.614 78.321-31.977 113.818-77.482 118.284-83.523zM396.421 97.87c-3.81 5.427-35.697 48.286-111.021 76.519-34.712-63.776-73.185-116.168-79.04-124.008 67.176-16.193 137.966 1.27 190.061 47.489zm-230.48-33.25c5.585 7.659 43.438 60.116 78.537 122.509-99.087 26.313-186.36 25.934-195.834 25.809C62.38 147.205 106.678 92.573 165.941 64.62zM44.17 256.323c0-2.166.043-4.322.108-6.473 9.268.19 111.92 1.513 217.706-30.146 6.064 11.868 11.857 23.915 17.174 35.949-76.599 21.575-146.194 83.527-180.531 142.306C64.794 360.405 44.17 310.73 44.17 256.323zm81.807 167.113c22.127-45.233 82.178-103.622 167.579-132.756 29.74 77.283 42.039 142.053 45.189 160.638-68.112 29.013-150.015 21.053-212.768-27.882zm248.38 8.489c-2.171-12.886-13.446-74.897-41.152-151.033 66.38-10.626 124.7 6.768 131.947 9.055-9.442 58.941-43.273 109.844-90.795 141.978z"></path></svg><!-- <i class="fab fa-dribbble"></i> --></a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</footer>
-<!-- Core -->
-<script src="/assets/vendor/jquery/jquery.min.js"></script>
-<script src="/assets/vendor/popper/popper.min.js"></script>
-<script src="/assets/js/bootstrap/bootstrap.min.js"></script>
-<!-- FontAwesome 5 -->
-<script src="/assets/vendor/fontawesome/js/fontawesome-all.min.js" defer></script>
-<!-- Page plugins -->
-<script src="/assets/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
-<script src="/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
-<script src="/assets/vendor/input-mask/input-mask.min.js"></script>
-<script src="/assets/vendor/nouislider/js/nouislider.min.js"></script>
-<script src="/assets/vendor/textarea-autosize/textarea-autosize.min.js"></script>
-<!-- Theme JS -->
-<script src="/assets/js/theme.js"></script>
+    </footer>
+</main>
 </body>
+<script>
+//     $("#bootstrap-table").bootstrapTable({
+//         url: "userLogin", //请求后台的URL（*）
+//         dataType: "json",
+// // 此间是与client不一样的地方=======================开始
+//         contentType: "application/x-www-form-urlencoded",
+//         sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
+// //修改请求参数，不设置则有默认值 ，返回值必须是一个对象
+//         method: 'POST', //请求方式（*）
+//         toolbar: '#toolbar', //工具按钮用哪个容器
+//         search: true, //是否显示表格搜索
+//         showFooter: false, //显示底部，默认不显示
+//         sortable: true,
+//         sortName: "id",
+//         sortOrder: "asc", //排序方式
+// // 此间是与client不一样的地方=======================结束
+//
+//         striped: true, //是否显示行间隔色
+//         cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+//         pagination: true, //是否显示分页（*）
+//         showPaginationSwitch: true, //显示切换分页
+//         showFullscreen: false, //显示全屏
+//         showHeader: true, //显示头部，默认显示
+//         showExport: false, //显示导出
+//         showColumns: true, //是否显示所有的列（选择显示的列）
+//         showRefresh: true, //是否显示刷新按钮
+//         sortable: true, //是否启用排序
+//         pageNumber: 1, //初始化加载第一页，默认第一页,并记录
+//         pageSize: 6, //每页的记录行数（*）
+//         pageList: [3, 6, 9], //可供选择的每页的行数（*）
+//         strictSearch: true,
+//         minimumCountColumns: 2, //最少允许的列数
+//         clickToSelect: true, //是否启用点击选中行
+//         idField: "id", //表明哪个是字段是标识字段
+//         uniqueId: "id", //每一行的唯一标识，一般为主键列
+//         showToggle: true, //是否显示详细视图和列表视图的切换按钮
+//         cardView: false, //是否显示详细视图
+//         detailView: false, //是否显示父子表
+//         columns: [{
+//             checkbox: true,
+//             visible: true                  //是否显示复选框
+//         }, {
+//             field: 'username',
+//             title: '姓名',
+//             sortable: true
+//         }, {
+//             field: 'password',
+//             title: '密码'
+//         }, {
+//             field: 'employeeNum',
+//             title: '工号',
+//             sortable: true
+//         }, {
+//             field: 'departmentId',
+//             title: '部门',
+//             sortable: true
+//         }, {
+//             field: 'id',
+//             title: '操作',
+//             width: 120,
+//             align: 'center',
+//             valign: 'middle',
+//             // formatter: actionFormatter
+//         },],
+//         onLoadSuccess: function () {
+//         },
+//         onLoadError: function () {
+//             showTips("数据加载失败！");
+//         }
+
+    // })
+    function userLogin() {
+        let username = $("#input-username");
+        let password = $("#input_password");
+        $.ajax({
+            url: "userLogin",
+            type: "post",
+            data: {
+                username: username,
+                password: password,
+            },
+            dataType: "json",
+            success: function () {
+                alert("登录操作成功");
+                location.href = "#";
+            }
+        })
+    }
+</script>
 </html>

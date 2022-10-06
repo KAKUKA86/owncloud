@@ -17,4 +17,9 @@ public class AdministratorServiceImpl implements AdministratorService {
         return administratorMapper.queryAdministratorsByAdminName(adminName);
     }
 
+    @Override
+    public List<Administrator> queryNormalUser() {
+        return administratorMapper.queryNormalUser();
+    }
+
 }

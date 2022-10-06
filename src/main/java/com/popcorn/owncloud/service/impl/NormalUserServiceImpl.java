@@ -14,12 +14,13 @@ public class NormalUserServiceImpl implements NormalUserService {
     @Autowired
     private NormalUserMapper userMapper;
 
-    /**
-     * 查询普通用户
-     * @return
-     */
     @Override
     public List<NormalUser> queryNormalUsersByUserName(String userName) {
         return userMapper.queryNormalUsersByUserName(userName);
+    }
+
+    @Override
+    public Integer UserSingIn(NormalUser normalUser) {
+        return userMapper.addNewNormalUser(normalUser);
     }
 }

@@ -7,4 +7,6 @@ import java.util.List;
 @Service
 public interface NormalUserService {
     List<NormalUser> queryNormalUsersByUserName(String username);
+
+    Integer UserSingIn(NormalUser normalUser);
 }

@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface AdministratorService {
     List<Administrator> queryAdministratorsByAdminName(String adminName);
+
+    List<Administrator> queryNormalUser();
 }

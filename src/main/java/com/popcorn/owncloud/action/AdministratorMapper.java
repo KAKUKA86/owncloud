@@ -10,4 +10,7 @@ import java.util.List;
 public interface AdministratorMapper {
     @Select("select * from admin_table where admin_name = #{adminName}")
     List<Administrator> queryAdministratorsByAdminName(String adminName);
+
+    @Select("select * from user_table")
+    List<Administrator> queryNormalUser();
 }
