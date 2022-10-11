@@ -1,8 +1,34 @@
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="head">
+<head>
     <title>爆米花netdisk</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Probably the most complete UI kit out there. Multiple functionalities and controls added,  extended color palette and beautiful typography, designed as its own extended version of Bootstrap at  the highest level of quality.                             ">
+    <meta name="author" content="Webpixels">
+    <title>Boomerang UI Kit - Free Bootstrap Framework by Webpixels</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
+    <!--    <link type="text/css" href="/assets/font/font.css" rel="stylesheet">-->
+    <!-- Theme CSS -->
+    <link type="text/css" href="/assets/css/theme.css" rel="stylesheet">
+    <!-- Demo CSS - No need to use these in your project -->
+    <link type="text/css" href="/assets/css/demo.css" rel="stylesheet">
+    <!-- Core -->
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/assets/vendor/popper/popper.min.js"></script>
+    <script src="/assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- FontAwesome 5 -->
+    <script src="/assets/vendor/fontawesome/js/fontawesome-all.min.js" defer></script>
+    <!-- Page plugins -->
+    <script src="/assets/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+    <script src="/assets/vendor/input-mask/input-mask.min.js"></script>
+    <script src="/assets/vendor/nouislider/js/nouislider.min.js"></script>
+    <script src="/assets/vendor/textarea-autosize/textarea-autosize.min.js"></script>
+    <!-- Theme JS -->
+    <script src="/assets/js/theme.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-dark py-4">
@@ -53,9 +79,9 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-6"><a href="#" class="text-white">忘记了？</a></div>
-                                        <div class="col-6 text-right"><a href="#" class="text-white">新用户？</a></div>
+                                        <div class="col-6 text-right"><a href="/register" class="text-white">新用户？</a></div>
                                     </div>
-                                    <button type="submit" class="btn btn-block btn-lg bg-white mt-4" onclick="userLogin()">登录</button>
+                                    <button type="button" class="btn btn-block btn-lg bg-white mt-4" onclick="userLogin()">登录</button>
                                 </form>
                             </div>
                         </div>
@@ -137,90 +163,28 @@
 </main>
 </body>
 <script>
-//     $("#bootstrap-table").bootstrapTable({
-//         url: "userLogin", //请求后台的URL（*）
-//         dataType: "json",
-// // 此间是与client不一样的地方=======================开始
-//         contentType: "application/x-www-form-urlencoded",
-//         sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
-// //修改请求参数，不设置则有默认值 ，返回值必须是一个对象
-//         method: 'POST', //请求方式（*）
-//         toolbar: '#toolbar', //工具按钮用哪个容器
-//         search: true, //是否显示表格搜索
-//         showFooter: false, //显示底部，默认不显示
-//         sortable: true,
-//         sortName: "id",
-//         sortOrder: "asc", //排序方式
-// // 此间是与client不一样的地方=======================结束
-//
-//         striped: true, //是否显示行间隔色
-//         cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
-//         pagination: true, //是否显示分页（*）
-//         showPaginationSwitch: true, //显示切换分页
-//         showFullscreen: false, //显示全屏
-//         showHeader: true, //显示头部，默认显示
-//         showExport: false, //显示导出
-//         showColumns: true, //是否显示所有的列（选择显示的列）
-//         showRefresh: true, //是否显示刷新按钮
-//         sortable: true, //是否启用排序
-//         pageNumber: 1, //初始化加载第一页，默认第一页,并记录
-//         pageSize: 6, //每页的记录行数（*）
-//         pageList: [3, 6, 9], //可供选择的每页的行数（*）
-//         strictSearch: true,
-//         minimumCountColumns: 2, //最少允许的列数
-//         clickToSelect: true, //是否启用点击选中行
-//         idField: "id", //表明哪个是字段是标识字段
-//         uniqueId: "id", //每一行的唯一标识，一般为主键列
-//         showToggle: true, //是否显示详细视图和列表视图的切换按钮
-//         cardView: false, //是否显示详细视图
-//         detailView: false, //是否显示父子表
-//         columns: [{
-//             checkbox: true,
-//             visible: true                  //是否显示复选框
-//         }, {
-//             field: 'username',
-//             title: '姓名',
-//             sortable: true
-//         }, {
-//             field: 'password',
-//             title: '密码'
-//         }, {
-//             field: 'employeeNum',
-//             title: '工号',
-//             sortable: true
-//         }, {
-//             field: 'departmentId',
-//             title: '部门',
-//             sortable: true
-//         }, {
-//             field: 'id',
-//             title: '操作',
-//             width: 120,
-//             align: 'center',
-//             valign: 'middle',
-//             // formatter: actionFormatter
-//         },],
-//         onLoadSuccess: function () {
-//         },
-//         onLoadError: function () {
-//             showTips("数据加载失败！");
-//         }
-
-    // })
     function userLogin() {
-        let username = $("#input-username");
-        let password = $("#input_password");
+        console.log(11)
+        let userName = $("#input_username").val();
+        let userPassword = $("#input_password").val();
         $.ajax({
             url: "userLogin",
             type: "post",
             data: {
-                username: username,
-                password: password,
+                userName: userName,
+                userPassword: userPassword,
             },
             dataType: "json",
-            success: function () {
-                alert("登录操作成功");
-                location.href = "#";
+            success: function (data) {
+                if(data.state==="success"){
+                    alert(123);
+                    alert("登录操作成功");
+                    window.location.href="index";
+                }
+                if (data.state==="error") {
+                    alert("用户名或密码错误");
+                    window.location.reload();
+                }
             }
         })
     }

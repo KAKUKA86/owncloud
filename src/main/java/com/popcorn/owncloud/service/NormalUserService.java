@@ -6,7 +6,7 @@ import java.util.List;
 
 @Service
 public interface NormalUserService {
-    List<NormalUser> queryNormalUsersByUserName(String username);
+    NormalUser queryNormalUsersByUserName(String username);
 
-    Integer UserSingIn(NormalUser normalUser);
+    Integer userSigIn(NormalUser normalUser);
 }

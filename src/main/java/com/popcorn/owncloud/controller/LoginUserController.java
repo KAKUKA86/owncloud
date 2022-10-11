@@ -5,6 +5,7 @@ import com.popcorn.owncloud.bean.Administrator;
 import com.popcorn.owncloud.bean.NormalUser;
 import com.popcorn.owncloud.service.AdministratorService;
 import com.popcorn.owncloud.service.NormalUserService;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,13 +30,18 @@ public class LoginUserController {
     @Resource
     private AdministratorService administratorService;
 
+    @RequestMapping("/register")
+    public String register() {
+        return "register";
+    }
+
     @RequestMapping("/index")
-    public String index(Model model) {
+    public String index() {
         return "index";
     }
 
     @RequestMapping("/login")
-    public String login(Model model) {
+    public String login() {
         return "login";
     }
 
@@ -46,44 +52,43 @@ public class LoginUserController {
     @PostMapping("/userLogin")
     @ResponseBody
     public String userLogin(HttpServletRequest request) {
+
+        JSONObject result = new JSONObject();
         String userName = request.getParameter("userName");
         String userPassword = request.getParameter("userPassword");
-        String tableUserName = null;
-        String tableUserPassword = null;
-        List<NormalUser> normalUserList;
-        JSONObject result = new JSONObject();
-        //通过用户名从数据库中查询数据
-        try{
-            normalUserList = normalUserService.queryNormalUsersByUserName(userName);
-            for (NormalUser normalUser:normalUserList) {
-                //从数据库中获得的用户名和密码
-                tableUserName = normalUser.getUserName();
-                tableUserPassword = normalUser.getUserPassword();
-            }
+        NormalUser normalUser = normalUserService.queryNormalUsersByUserName(userName);
 
-
-            if (Objects.equals(userName, tableUserName) && Objects.equals(userPassword, tableUserPassword)) {
-                result.put("state","success");
-                return result.toJSONString();
-            }
-            result.put("state","error");
-            return  result.toJSONString();
-        }catch (Exception e){
-            result.put("state","error");
-            return  result.toJSONString();
+        if (normalUser == null) {
+            System.out.println("失败1号状态");
+            result.put("state", "error");
+            return result.toJSONString();
         }
+
+        if (!Objects.equals(userPassword, normalUser.getUserPassword())) {
+            System.out.println("失败2号状态");
+            result.put("state", "error");
+            return result.toJSONString();
+        }
+        result.put("state", "success");
+        return result.toJSONString();
     }
+
+
 
     /**
      * 普通用户注册模块
      */
     @PostMapping("/userSignIn")
     @ResponseBody
-    public String userSignIn(NormalUser normalUser) {
-        normalUser.setUserRegisterTimestamp(System.currentTimeMillis());
-        Integer status = normalUserService.UserSingIn(normalUser);
+    public String userSignIn(HttpServletRequest request) {
+        NormalUser newUser = new NormalUser();
+        newUser.setUserName(request.getParameter("userName"));
+        newUser.setUserPassword(request.getParameter("userPassWord"));
+        newUser.setUserPhoneNumber(Long.valueOf(request.getParameter("userPhone")));
+        newUser.setUserRegisterTimestamp(System.currentTimeMillis());
+        Integer status = normalUserService.userSigIn(newUser);
         JSONObject result = new JSONObject();
-        if (status > 0) result.put("state","success");
+        if (status > 0) result.put("state", "success");
         return result.toJSONString();
     }
 
@@ -107,13 +112,13 @@ public class LoginUserController {
             }
 
             if (Objects.equals(adminName, tableAdminName) && Objects.equals(adminPassword, tableAdminPassword)) {
-                result.put("state","success");
+                result.put("state", "success");
                 return result.toJSONString();
             }
-            result.put("state","error");
-            return  result.toJSONString();
-        }catch (Exception e) {
-            result.put("state","error");
+            result.put("state", "error");
+            return result.toJSONString();
+        } catch (Exception e) {
+            result.put("state", "error");
             return result.toJSONString();
         }
     }

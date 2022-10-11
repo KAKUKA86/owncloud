@@ -15,12 +15,12 @@ public class NormalUserServiceImpl implements NormalUserService {
     private NormalUserMapper userMapper;
 
     @Override
-    public List<NormalUser> queryNormalUsersByUserName(String userName) {
+    public NormalUser queryNormalUsersByUserName(String userName) {
         return userMapper.queryNormalUsersByUserName(userName);
     }
 
     @Override
-    public Integer UserSingIn(NormalUser normalUser) {
+    public Integer userSigIn(NormalUser normalUser) {
         return userMapper.addNewNormalUser(normalUser);
     }
 }

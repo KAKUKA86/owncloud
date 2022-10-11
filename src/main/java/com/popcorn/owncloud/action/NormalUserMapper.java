@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface NormalUserMapper {
     @Select("select * from user_table where user_name = #{userName}")
-    List<NormalUser> queryNormalUsersByUserName(String userName);
+    NormalUser queryNormalUsersByUserName(String userName);
 
 
     @Insert("insert into user_table(user_name, user_password, user_phone, user_register_timestamp)"+
