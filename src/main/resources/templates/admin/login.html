@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="head">
+    <meta charset="UTF-8">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-dark py-4">
+    <a class="navbar-brand" href="#">PopcornetAdmin</a>
+</nav>
+<main class="main">
+    <section class="py-xl bg-cover bg-size--cover" style="background-image: url('/assets/images/backgrounds/back-img-1.jpg')">
+        <span class="mask bg-gradient-dark alpha-3"></span>
+        <div class="container d-flex align-items-center no-padding">
+            <div class="col">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <div class="card bg-gradient-gray-dark text-white">
+                            <div class="card-body">
+                                <span class="clearfix"></span>
+<!--                                <img src="/assets/images/brand/icon.png" style="width: 50px;">-->
+                                <i class="fa-regular fa-lock-keyhole"></i>
+                                <h4 class="heading h3 text-white pt-5 pb-5">欢迎回来<br>
+                                    现在，请登录你的账号</h4>
+                                <form class="form-primary">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control bg-gray-dark" id="input_username" placeholder="你的用户名">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control bg-gray-dark"id="input_password" placeholder="密码">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6"><a href="#" class="text-white">忘记了？</a></div>
+                                        <div class="col-6 text-right"><a href="/register" class="text-white">新用户？</a></div>
+                                    </div>
+                                    <button type="button" class="btn btn-block btn-lg bg-white mt-4" onclick="userLogin()">登录</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="pt-5 pb-3 footer  footer-dark bg-tertiary">
+
+    </footer>
+</main>
+</body>
+</html>

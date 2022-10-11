@@ -13,7 +13,6 @@ public interface NormalUserMapper {
     NormalUser queryNormalUsersByUserName(String userName);
 
 
-    @Insert("insert into user_table(user_name, user_password, user_phone, user_register_timestamp)"+
-            "values (#{userName}, #{userPassword}, #{userPhone}, #{userRegisterTimestamp}")
+    @Insert("insert into user_table(user_name, user_password, user_phone, user_register_timestamp) values (#{userName},#{userPassword},#{userPhoneNumber},#{userRegisterTimestamp})")
     Integer addNewNormalUser(NormalUser normalUser);
 }

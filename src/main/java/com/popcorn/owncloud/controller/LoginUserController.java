@@ -83,14 +83,19 @@ public class LoginUserController {
     public String userSignIn(HttpServletRequest request) {
         NormalUser newUser = new NormalUser();
         newUser.setUserName(request.getParameter("userName"));
-        newUser.setUserPassword(request.getParameter("userPassWord"));
-        newUser.setUserPhoneNumber(Long.valueOf(request.getParameter("userPhone")));
+        newUser.setUserPassword(request.getParameter("userPassword"));
+        newUser.setUserPhoneNumber(Long.valueOf(request.getParameter("userPhoneNumber")));
         newUser.setUserRegisterTimestamp(System.currentTimeMillis());
         Integer status = normalUserService.userSigIn(newUser);
         JSONObject result = new JSONObject();
-        if (status > 0) result.put("state", "success");
+        if (status > 0) {
+            result.put("state", "success");
+            return result.toJSONString();
+        }
+        result.put("state", "error");
         return result.toJSONString();
     }
+
 
     /**
      * 管理员验证模块
