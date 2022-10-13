@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -43,7 +44,7 @@ public class LoginUserController {
     }
 
     /**
-     * 登录验证模块(写入时间戳功能暂未实现)
+     * 登录验证模块
      */
 
     @PostMapping("/userLogin")
