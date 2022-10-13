@@ -9,6 +9,4 @@ public class OwncloudApplication {
     public static void main(String[] args) {
         SpringApplication.run(OwncloudApplication.class, args);
     }
-
-
 }
