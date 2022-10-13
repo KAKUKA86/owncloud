@@ -1,16 +1,26 @@
 package com.popcorn.owncloud.action;
 
 import com.popcorn.owncloud.bean.Administrator;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 @Mapper
 public interface AdministratorMapper {
     @Select("select * from admin_table where admin_name = #{adminName}")
-    List<Administrator> queryAdministratorsByAdminName(String adminName);
+    Administrator queryAdministratorsByAdminName(String adminName);
 
     @Select("select * from user_table")
-    List<Administrator> queryNormalUser();
+    List<Administrator> queryAdministratorList();
+
+    @Insert("insert into admin_table (admin_level, admin_name, admin_password, admin_number) " +
+            "values (1, #{adminName}, #{adminPassword}, #{admin_number})")
+    int addAdminUser(Administrator administrator);
+
+    @Delete("delete from admin_table where admin_id = #{adminId}")
+    void deleteAdmin(Integer adminId);
+
+    @Update("update admin_table set admin_name = #{adminName}, admin_password = #{adminPassword} admin_number = #{adminNumber} " +
+            "where admin_id = #{adminId}")
+    int updateAdminUser(Administrator administrator);
 }

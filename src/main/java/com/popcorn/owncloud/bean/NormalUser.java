@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class NormalUser {
     /**
      * 用户ID
-     * * 用户名
+     * 用户名
      * 用户密码
      * 用户存储空间
      * 用户电话

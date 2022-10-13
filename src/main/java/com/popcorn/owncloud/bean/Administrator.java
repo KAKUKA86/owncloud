@@ -12,9 +12,18 @@ public class Administrator {
      * 管理员电话
      */
     Integer adminId;
+    Integer adminLevel;
     String adminName;
     String adminPassword;
-    Integer adminNumber;
+    Long adminNumber;
+
+    public Integer getAdminLevel() {
+        return adminLevel;
+    }
+
+    public void setAdminLevel(Integer adminLevel) {
+        this.adminLevel = adminLevel;
+    }
 
     public String getAdminName() {
         return adminName;
@@ -40,11 +49,11 @@ public class Administrator {
         this.adminPassword = adminPassword;
     }
 
-    public Integer getAdminNumber() {
+    public Long getAdminNumber() {
         return adminNumber;
     }
 
-    public void setAdminNumber(Integer adminNumber) {
+    public void setAdminNumber(Long adminNumber) {
         this.adminNumber = adminNumber;
     }
 }

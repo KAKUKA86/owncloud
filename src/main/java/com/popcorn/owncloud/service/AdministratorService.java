@@ -5,7 +5,13 @@ import com.popcorn.owncloud.bean.Administrator;
 import java.util.List;
 
 public interface AdministratorService {
-    List<Administrator> queryAdministratorsByAdminName(String adminName);
+    Administrator queryAdministratorsByAdminName(String adminName);
 
-    List<Administrator> queryNormalUser();
+    List<Administrator> queryAdministratorList();
+
+    int addAdminUser(Administrator administrator);
+
+    void deleteAdminUser(Integer adminId);
+
+    int updateAdmin(Administrator administrator);
 }

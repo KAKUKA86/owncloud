@@ -28,4 +28,14 @@ public class NormalUserServiceImpl implements NormalUserService {
     public void addedLogonTimestamp(NormalUser normalUser) {
         userMapper.addedLoginTimestamp(normalUser);
     }
+
+    @Override
+    public List<NormalUser> queryNormalUserList() {
+        return userMapper.queryNormalUserList();
+    }
+
+    @Override
+    public void deleteUserById(Integer userId) {
+        userMapper.deleteUserById(userId);
+    }
 }

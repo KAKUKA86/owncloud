@@ -5,16 +5,13 @@ import com.popcorn.owncloud.bean.Administrator;
 import com.popcorn.owncloud.bean.NormalUser;
 import com.popcorn.owncloud.service.AdministratorService;
 import com.popcorn.owncloud.service.NormalUserService;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
+
 import java.util.Objects;
 
 /**
@@ -79,7 +76,6 @@ public class LoginUserController {
     }
 
 
-
     /**
      * 普通用户注册模块
      */
@@ -105,32 +101,27 @@ public class LoginUserController {
     /**
      * 管理员验证模块
      */
-    @PostMapping("/adminLogin")
+    @PostMapping("/admin/adminLogin")
     @ResponseBody
     public String adminLogin(HttpServletRequest request) {
+        JSONObject result = new JSONObject();
         String adminName = request.getParameter("adminName");
         String adminPassword = request.getParameter("adminPassword");
-        String tableAdminName = null;
-        String tableAdminPassword = null;
-        List<Administrator> administratorList;
-        JSONObject result = new JSONObject();
-        try {
-            administratorList = administratorService.queryAdministratorsByAdminName(adminName);
-            for (Administrator administrator : administratorList) {
-                tableAdminName = administrator.getAdminName();
-                tableAdminPassword = administrator.getAdminPassword();
-            }
-
-            if (Objects.equals(adminName, tableAdminName) && Objects.equals(adminPassword, tableAdminPassword)) {
-                result.put("state", "success");
-                return result.toJSONString();
-            }
-            result.put("state", "error");
-            return result.toJSONString();
-        } catch (Exception e) {
+        Administrator administrator = administratorService.queryAdministratorsByAdminName(adminName);
+        System.out.println(adminName);
+        System.out.println(adminPassword);
+        if (administrator == null) {
+            System.out.println("错误一");
             result.put("state", "error");
             return result.toJSONString();
         }
+        if (!Objects.equals(adminPassword, administrator.getAdminPassword())){
+            System.out.println("错误二");
+            result.put("state","error");
+            return result.toJSONString();
+        }
+        result.put("state", "success");
+        return result.toJSONString();
     }
 
 }

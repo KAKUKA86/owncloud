@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="head">
     <meta charset="UTF-8">
 </head>
@@ -8,31 +8,49 @@
     <a class="navbar-brand" href="#">PopcornetAdmin</a>
 </nav>
 <main class="main">
-    <section class="py-xl bg-cover bg-size--cover" style="background-image: url('/assets/images/backgrounds/back-img-1.jpg')">
-        <span class="mask bg-gradient-dark alpha-3"></span>
+    <section class="py-xl bg-cover bg-size--cover"
+             style="background-image: url('/assets/images/backgrounds/back-img-2.jpg')">
+        <span class="mask bg-gradient-primary alpha-3"></span>
         <div class="container d-flex align-items-center no-padding">
             <div class="col">
                 <div class="row justify-content-center">
                     <div class="col-lg-5">
-                        <div class="card bg-gradient-gray-dark text-white">
+                        <div class="card bg-primary alpha-6 text-white">
                             <div class="card-body">
+                                <button type="button" class="btn btn-primary btn-nobg btn-zoom--hover mb-5">
+                                    <span class="btn-inner--icon">
+                                        <svg class="svg-inline--fa fa-arrow-left fa-w-14" aria-hidden="true"
+                                             data-prefix="fas" data-icon="arrow-left" role="img"
+                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path
+                                                fill="currentColor"
+                                                d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z">
+
+                                        </path>
+                                        </svg>
+                                    </span>
+                                </button>
                                 <span class="clearfix"></span>
-<!--                                <img src="/assets/images/brand/icon.png" style="width: 50px;">-->
-                                <i class="fa-regular fa-lock-keyhole"></i>
+                                <img src="/assets/images/brand/icon-white.png" style="width: 150px;">
                                 <h4 class="heading h3 text-white pt-5 pb-5">欢迎回来<br>
-                                    现在，请登录你的账号</h4>
+                                    管理员登录</h4>
                                 <form class="form-primary">
                                     <div class="form-group">
-                                        <input type="text" class="form-control bg-gray-dark" id="input_username" placeholder="你的用户名">
+                                        <input type="text" class="form-control" id="input_username"
+                                               placeholder="用户名">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control bg-gray-dark"id="input_password" placeholder="密码">
+                                        <input type="password" class="form-control" id="input_password"
+                                               placeholder="密码">
                                     </div>
-                                    <div class="row">
-                                        <div class="col-6"><a href="#" class="text-white">忘记了？</a></div>
-                                        <div class="col-6 text-right"><a href="/register" class="text-white">新用户？</a></div>
+                                    <div class="form-group" id="select_level">
+                                        <select class="form-control bg-primary">
+                                            <option value="0">用户类别0</option>
+                                            <option value="1">用户类别1</option>
+                                        </select>
                                     </div>
-                                    <button type="button" class="btn btn-block btn-lg bg-white mt-4" onclick="userLogin()">登录</button>
+                                    <button type="button" class="btn btn-block btn-lg bg-white mt-4"
+                                            onclick="userAdminLogin()">登录
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -41,9 +59,34 @@
             </div>
         </div>
     </section>
-    <footer class="pt-5 pb-3 footer  footer-dark bg-tertiary">
-
-    </footer>
 </main>
 </body>
+<script>
+    function userAdminLogin() {
+        let userName = $("#input_username").val();
+        let userPassword = $("#input_password").val();
+        let userLevel = $("#select_level").val();
+        $.ajax({
+            url: "adminLogin",
+            type: "post",
+            data: {
+                adminName: userName,
+                adminPassword: userPassword,
+                adminLevel: userLevel,
+            },
+            dataType: "json",
+            success: function (data) {
+                if (data.state === "success") {
+                    alert("登录成功");
+                    window.location.href = "/admin/adminHomePage";
+                }
+                if (data.state === "error") {
+                    alert("失败");
+                    window.location.reload();
+                }
+            }
+        })
+
+    }
+</script>
 </html>

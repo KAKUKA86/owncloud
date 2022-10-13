@@ -13,13 +13,28 @@ public class AdministratorServiceImpl implements AdministratorService {
     @Autowired
     private AdministratorMapper administratorMapper;
     @Override
-    public List<Administrator> queryAdministratorsByAdminName(String adminName) {
+    public Administrator queryAdministratorsByAdminName(String adminName) {
         return administratorMapper.queryAdministratorsByAdminName(adminName);
     }
 
     @Override
-    public List<Administrator> queryNormalUser() {
-        return administratorMapper.queryNormalUser();
+    public List<Administrator> queryAdministratorList() {
+        return administratorMapper.queryAdministratorList();
+    }
+
+    @Override
+    public int addAdminUser(Administrator administrator) {
+        return administratorMapper.addAdminUser(administrator);
+    }
+
+    @Override
+    public void deleteAdminUser(Integer adminId) {
+        administratorMapper.deleteAdmin(adminId);
+    }
+
+    @Override
+    public int updateAdmin(Administrator administrator) {
+        return administratorMapper.updateAdminUser(administrator);
     }
 
 }
