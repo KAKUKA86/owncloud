@@ -9,4 +9,6 @@ public interface NormalUserService {
     NormalUser queryNormalUsersByUserName(String username);
 
     Integer userSigIn(NormalUser normalUser);
+
+    void addedLogonTimestamp(NormalUser normalUser);
 }

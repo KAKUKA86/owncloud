@@ -4,12 +4,23 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class File {
+    /**
+     * 文件ID
+     * 文件名
+     * 文件上传时间
+     * 文件url
+     * 文件类型
+     * 文件大小
+     * 用户ID
+     */
     Integer fileId;
+    String fileName;
     Integer fileTimestamp;
     String fileUrl;
+    String fileType;
+    Double fileSize;
     Integer userId;
-    String fileName;
-    String fileOldName;
+
 
     public Integer getFileId() {
         return fileId;
@@ -51,11 +62,19 @@ public class File {
         this.fileName = fileName;
     }
 
-    public String getFileOldName() {
-        return fileOldName;
+    public String getFileType() {
+        return fileType;
     }
 
-    public void setFileOldName(String fileOldName) {
-        this.fileOldName = fileOldName;
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public Double getFileSize() {
+        return fileSize;
+    }
+
+    public void setFileSize(Double fileSize) {
+        this.fileSize = fileSize;
     }
 }

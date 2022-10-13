@@ -4,6 +4,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Administrator {
+    /**
+     * 管理员ID
+     * 管理员等级
+     * 管理员名
+     * 管理员密码
+     * 管理员电话
+     */
     Integer adminId;
     String adminName;
     String adminPassword;

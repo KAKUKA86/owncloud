@@ -36,4 +36,5 @@ public class AdministratorController {
         result.put("rows", administratorList);
         return result.toJSONString();
     }
+
 }

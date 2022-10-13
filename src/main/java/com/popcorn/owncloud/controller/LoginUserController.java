@@ -69,6 +69,11 @@ public class LoginUserController {
             result.put("state", "error");
             return result.toJSONString();
         }
+
+        normalUser.setUserLastLoginTimestamp(System.currentTimeMillis());
+        //这里的对象属性已经有name和password
+        //仅添加无返回值
+        normalUserService.addedLogonTimestamp(normalUser);
         result.put("state", "success");
         return result.toJSONString();
     }

@@ -23,4 +23,9 @@ public class NormalUserServiceImpl implements NormalUserService {
     public Integer userSigIn(NormalUser normalUser) {
         return userMapper.addNewNormalUser(normalUser);
     }
+
+    @Override
+    public void addedLogonTimestamp(NormalUser normalUser) {
+        userMapper.addedLoginTimestamp(normalUser);
+    }
 }

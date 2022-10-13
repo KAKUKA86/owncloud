@@ -3,15 +3,25 @@ package com.popcorn.owncloud.bean;
 
 import org.springframework.stereotype.Component;
 
+
 @Component
 public class NormalUser {
+    /**
+     * 用户ID
+     * * 用户名
+     * 用户密码
+     * 用户存储空间
+     * 用户电话
+     * 用户最后登陆时间
+     * 用户注册时间
+     */
     Integer userID;
-    String userPassword;
     String userName;
+    String userPassword;
+    Double userStorage;
     Long userPhoneNumber;
     Long userLastLoginTimestamp;
     Long userRegisterTimestamp;
-    Long userUpdateTime;
 
     public Integer getUserID() {
         return userID;
@@ -19,6 +29,14 @@ public class NormalUser {
 
     public void setUserID(Integer userID) {
         this.userID = userID;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getUserPassword() {
@@ -29,12 +47,12 @@ public class NormalUser {
         this.userPassword = userPassword;
     }
 
-    public String getUserName() {
-        return userName;
+    public Double getUserStorage() {
+        return userStorage;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserStorage(Double userStorage) {
+        this.userStorage = userStorage;
     }
 
     public Long getUserPhoneNumber() {
@@ -59,13 +77,5 @@ public class NormalUser {
 
     public void setUserRegisterTimestamp(Long userRegisterTimestamp) {
         this.userRegisterTimestamp = userRegisterTimestamp;
-    }
-
-    public Long getUserUpdateTime() {
-        return userUpdateTime;
-    }
-
-    public void setUserUpdateTime(Long userUpdateTime) {
-        this.userUpdateTime = userUpdateTime;
     }
 }
