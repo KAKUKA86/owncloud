@@ -1,13 +1,12 @@
-
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>CloudBOX | Responsive Bootstrap 4 Admin Dashboard Template</title>
+    <title>Popcornet | Responsive Bootstrap 4 Admin Dashboard Template</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico"/>
 
     <link rel="stylesheet" href="/assets/css/backend.min.css">
     <link rel="stylesheet" href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
@@ -24,9 +23,11 @@
     <!--All Spreadsheet -->
     <link rel="stylesheet" href="/assets/vendor/doc-viewer/include/SheetJS/handsontable.full.min.css">
     <!--Image viewer-->
-    <link rel="stylesheet" href="/assets/vendor/doc-viewer/include/verySimpleImageViewer/css/jquery.verySimpleImageViewer.css">
+    <link rel="stylesheet"
+          href="/assets/vendor/doc-viewer/include/verySimpleImageViewer/css/jquery.verySimpleImageViewer.css">
     <!--officeToHtml-->
-    <link rel="stylesheet" href="/assets/vendor/doc-viewer/include/officeToHtml/officeToHtml.css">  </head>
+    <link rel="stylesheet" href="/assets/vendor/doc-viewer/include/officeToHtml/officeToHtml.css">
+</head>
 <body class="  ">
 <!-- loader Start -->
 <div id="loading">
@@ -36,7 +37,6 @@
 <!-- loader END -->
 <!-- Wrapper Start -->
 <div class="wrapper">
-
     <div class="iq-sidebar  sidebar-default ">
         <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
             <a href="../index" class="header-logo">
@@ -51,13 +51,20 @@
             <div class="new-create select-dropdown input-prepend input-append">
                 <div class="btn-group">
                     <label data-toggle="dropdown">
-                        <div class="search-query selet-caption"><i class="las la-plus pr-2"></i>Create New</div><span class="search-replace"></span>
+                        <div class="search-query selet-caption"><i class="las la-plus pr-2"></i>新建</div>
+                        <span class="search-replace"></span>
                         <span class="caret"><!--icon--></span>
                     </label>
                     <ul class="dropdown-menu">
-                        <li><div class="item"><i class="ri-folder-add-line pr-3"></i>New Folder</div></li>
-                        <li><div class="item"><i class="ri-file-upload-line pr-3"></i>Upload Files</div></li>
-                        <li><div class="item"><i class="ri-folder-upload-line pr-3"></i>Upload Folders</div></li>
+                        <li>
+                            <div class="item"><i class="ri-folder-add-line pr-3"></i>新建文件夹</div>
+                        </li>
+                        <li>
+                            <div class="item"><i class="ri-file-upload-line pr-3"></i>上传文件</div>
+                        </li>
+                        <li>
+                            <div class="item"><i class="ri-folder-upload-line pr-3"></i>上传文件夹</div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -65,14 +72,14 @@
                 <ul id="iq-sidebar-toggle" class="iq-menu">
                     <li class="active">
                         <a href="../index" class="">
-                            <i class="las la-home iq-arrow-left"></i><span>Dashboard</span>
+                            <i class="las la-home iq-arrow-left"></i><span>仪表盘</span>
                         </a>
                         <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
                     <li class=" ">
                         <a href="#mydrive" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                            <i class="las la-hdd"></i><span>My Drive</span>
+                            <i class="las la-hdd"></i><span>我的存储空间</span>
                             <i class="las la-angle-right iq-arrow-right arrow-active"></i>
                             <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
                         </a>
@@ -101,28 +108,28 @@
                     </li>
                     <li class=" ">
                         <a href="page-files.html" class="">
-                            <i class="lar la-file-alt iq-arrow-left"></i><span>Files</span>
+                            <i class="lar la-file-alt iq-arrow-left"></i><span>文件</span>
                         </a>
                         <ul id="page-files" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
                     <li class=" ">
                         <a href="page-folders.html" class="">
-                            <i class="las la-stopwatch iq-arrow-left"></i><span>Recent</span>
+                            <i class="las la-stopwatch iq-arrow-left"></i><span>最近处理</span>
                         </a>
                         <ul id="page-folders" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
                     <li class=" ">
                         <a href="page-favourite.html" class="">
-                            <i class="lar la-star"></i><span>Favourite</span>
+                            <i class="lar la-star"></i><span>收藏夹</span>
                         </a>
                         <ul id="page-fevourite" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
                     <li class=" ">
                         <a href="page-delete.html" class="">
-                            <i class="las la-trash-alt iq-arrow-left"></i><span>Trash</span>
+                            <i class="las la-trash-alt iq-arrow-left"></i><span>回收站</span>
                         </a>
                         <ul id="page-delete" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
@@ -130,191 +137,235 @@
                 </ul>
             </nav>
             <div class="sidebar-bottom">
-                <h4 class="mb-3"><i class="las la-cloud mr-2"></i>Storage</h4>
-                <p>17.1 / 20 GB Used</p>
+                <h4 class="mb-3"><i class="las la-cloud mr-2"></i>存储</h4>
+                <p>已使用 17.1 / 20 GB</p>
                 <div class="iq-progress-bar mb-3">
                       <span class="bg-primary iq-progress progress-1" data-percent="67">
                       </span>
                 </div>
-                <p>75% Full - 3.9 GB Free</p>
-                <a href="#" class="btn btn-outline-primary view-more mt-4">Buy Storage</a>
+                <p>已用 75% - 剩余 3.9 GB</p>
+                <a href="#" class="btn btn-outline-primary view-more mt-4">购买存储空间</a>
             </div>
             <div class="p-3"></div>
         </div>
-    </div>       <div class="iq-top-navbar">
-    <div class="iq-navbar-custom">
-        <nav class="navbar navbar-expand-lg navbar-light p-0">
-            <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
-                <i class="ri-menu-line wrapper-menu"></i>
-                <a href="../index" class="header-logo">
-                    <img src="/assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
-                    <img src="/assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
-                </a>
-            </div>
-            <div class="iq-search-bar device-search">
-
-                <form>
-                    <div class="input-prepend input-append">
-                        <div class="btn-group">
-                            <label class="dropdown-toggle searchbox" data-toggle="dropdown">
-                                <input class="dropdown-toggle search-query text search-input" type="text"  placeholder="Type here to search..."><span class="search-replace"></span>
-                                <a class="search-link" href="#"><i class="ri-search-line"></i></a>
-                                <span class="caret"><!--icon--></span>
-                            </label>
-                            <ul class="dropdown-menu">
-                                <li><a href="#"><div class="item"><i class="far fa-file-pdf bg-info"></i>PDFs</div></a></li>
-                                <li><a href="#"><div class="item"><i class="far fa-file-alt bg-primary"></i>Documents</div></a></li>
-                                <li><a href="#"><div class="item"><i class="far fa-file-excel bg-success"></i>Spreadsheet</div></a></li>
-                                <li><a href="#"><div class="item"><i class="far fa-file-powerpoint bg-danger"></i>Presentation</div></a></li>
-                                <li><a href="#"><div class="item"><i class="far fa-file-image bg-warning"></i>Photos & Images</div></a></li>
-                                <li><a href="#"><div class="item"><i class="far fa-file-video bg-info"></i>Videos</div></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div class="d-flex align-items-center">
-                <div class="change-mode">
-                    <div class="custom-control custom-switch custom-switch-icon custom-control-inline">
-                        <div class="custom-switch-inner">
-                            <p class="mb-0"> </p>
-                            <input type="checkbox" class="custom-control-input" id="dark-mode" data-active="true">
-                            <label class="custom-control-label" for="dark-mode" data-mode="toggle">
-                                <span class="switch-icon-left"><i class="a-left"></i></span>
-                                <span class="switch-icon-right"><i class="a-right"></i></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
-                    <i class="ri-menu-3-line"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto navbar-list align-items-center">
-                        <li class="nav-item nav-icon search-content">
-                            <a href="#" class="search-toggle rounded" id="dropdownSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-search-line"></i>
-                            </a>
-                            <div class="iq-search-bar iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownSearch">
-                                <form action="#" class="searchbox p-2">
-                                    <div class="form-group mb-0 position-relative">
-                                        <input type="text" class="text search-input font-size-12" placeholder="type here to search...">
-                                        <a href="#" class="search-link"><i class="las la-search"></i></a>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-                        <li class="nav-item nav-icon dropdown">
-                            <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-question-line"></i>
-                            </a>
-                            <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton01">
-                                <div class="card shadow-none m-0">
-                                    <div class="card-body p-0 ">
-                                        <div class="p-3">
-                                            <a href="#" class="iq-sub-card pt-0"><i class="ri-questionnaire-line"></i>Help</a>
-                                            <a href="#" class="iq-sub-card"><i class="ri-recycle-line"></i>Training</a>
-                                            <a href="#" class="iq-sub-card"><i class="ri-refresh-line"></i>Updates</a>
-                                            <a href="#" class="iq-sub-card"><i class="ri-service-line"></i>Terms and Policy</a>
-                                            <a href="#" class="iq-sub-card"><i class="ri-feedback-line"></i>Send Feedback</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item nav-icon dropdown">
-                            <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                <i class="ri-settings-3-line"></i>
-                            </a>
-                            <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton02">
-                                <div class="card shadow-none m-0">
-                                    <div class="card-body p-0 ">
-                                        <div class="p-3">
-                                            <a href="#" class="iq-sub-card pt-0"><i class="ri-settings-3-line"></i> Settings</a>
-                                            <a href="#" class="iq-sub-card"><i class="ri-hard-drive-line"></i> Get Drive for desktop</a>
-                                            <a href="#" class="iq-sub-card"><i class="ri-keyboard-line"></i> Keyboard Shortcuts</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item nav-icon dropdown caption-content">
-                            <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                <div class="caption bg-primary line-height">P</div>
-                            </a>
-                            <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton03">
-                                <div class="card mb-0">
-                                    <div class="card-header d-flex justify-content-between align-items-center mb-0">
-                                        <div class="header-title">
-                                            <h4 class="card-title mb-0">Profile</h4>
-                                        </div>
-                                        <div class="close-data text-right badge badge-primary cursor-pointer "><i class="ri-close-fill"></i></div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="profile-header">
-                                            <div class="cover-container text-center">
-                                                <div class="rounded-circle profile-icon bg-primary mx-auto d-block">
-                                                    P
-                                                    <a href="">
-
-                                                    </a>
-                                                </div>
-                                                <div class="profile-detail mt-3">
-                                                    <h5><a href="user-profile-edit.html">Panny Marco</a></h5>
-                                                    <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1c6c7d727265717d6e7f735c7b717d7570327f7371">[email&#160;protected]</a></p>
-                                                </div>
-                                                <a href="auth-sign-in.html" class="btn btn-primary">Sign Out</a>
-                                            </div>
-                                            <div class="profile-details mt-4 pt-4 border-top">
-                                                <div class="media align-items-center mb-3">
-                                                    <div class="rounded-circle iq-card-icon-small bg-primary">
-                                                        A
-                                                    </div>
-                                                    <div class="media-body ml-3">
-                                                        <div class="media justify-content-between">
-                                                            <h6 class="mb-0">Anna Mull</h6>
-                                                            <p class="mb-0 font-size-12"><i>Signed Out</i></p>
-                                                        </div>
-                                                        <p class="mb-0 font-size-12"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7d1c13131c100811113d1a101c1411531e1210">[email&#160;protected]</a></p>
-                                                    </div>
-                                                </div>
-                                                <div class="media align-items-center mb-3">
-                                                    <div class="rounded-circle iq-card-icon-small bg-success">
-                                                        K
-                                                    </div>
-                                                    <div class="media-body ml-3">
-                                                        <div class="media justify-content-between">
-                                                            <h6 class="mb-0">King Poilin</h6>
-                                                            <p class="mb-0 font-size-12"><i>Signed Out</i></p>
-                                                        </div>
-                                                        <p class="mb-0 font-size-12"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="076c6e696077686e6b6e6947606a666e6b2964686a">[email&#160;protected]</a></p>
-                                                    </div>
-                                                </div>
-                                                <div class="media align-items-center">
-                                                    <div class="rounded-circle iq-card-icon-small bg-danger">
-                                                        D
-                                                    </div>
-                                                    <div class="media-body ml-3">
-                                                        <div class="media justify-content-between">
-                                                            <h6 class="mb-0">Devid Worner</h6>
-                                                            <p class="mb-0 font-size-12"><i>Signed Out</i></p>
-                                                        </div>
-                                                        <p class="mb-0 font-size-12"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="107475667974677f627e756250777d71797c3e737f7d">[email&#160;protected]</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
     </div>
-</div>
+    <div class="iq-top-navbar">
+        <div class="iq-navbar-custom">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
+                    <i class="ri-menu-line wrapper-menu"></i>
+                    <a href="../index" class="header-logo">
+                        <img src="/assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
+                        <img src="/assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo"
+                             alt="logo">
+                    </a>
+                </div>
+                <div class="iq-search-bar device-search">
+                    <form>
+                        <div class="input-prepend input-append">
+                            <div class="btn-group">
+                                <label class="dropdown-toggle searchbox" data-toggle="dropdown">
+                                    <input class="dropdown-toggle search-query text search-input" type="text"
+                                           placeholder="在这里输入进行搜索......"><span class="search-replace"></span>
+                                    <a class="search-link" href="#"><i class="ri-search-line"></i></a>
+                                    <span class="caret"><!--icon--></span>
+                                </label>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">
+                                        <div class="item"><i class="far fa-file-pdf bg-info"></i>PDF文件</div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="item"><i class="far fa-file-alt bg-primary"></i>Word文件</div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="item"><i class="far fa-file-excel bg-success"></i>电子表格</div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="item"><i class="far fa-file-powerpoint bg-danger"></i>介绍
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="item"><i class="far fa-file-image bg-warning"></i>照片和图片
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="item"><i class="far fa-file-video bg-info"></i>视频</div>
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <div class="change-mode">
+                        <div class="custom-control custom-switch custom-switch-icon custom-control-inline">
+                            <div class="custom-switch-inner">
+                                <p class="mb-0"></p>
+                                <input type="checkbox" class="custom-control-input" id="dark-mode" data-active="true">
+                                <label class="custom-control-label" for="dark-mode" data-mode="toggle">
+                                    <span class="switch-icon-left"><i class="a-left"></i></span>
+                                    <span class="switch-icon-right"><i class="a-right"></i></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-label="Toggle navigation">
+                        <i class="ri-menu-3-line"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto navbar-list align-items-center">
+                            <li class="nav-item nav-icon search-content">
+                                <a href="#" class="search-toggle rounded" id="dropdownSearch" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <i class="ri-search-line"></i>
+                                </a>
+                                <div class="iq-search-bar iq-sub-dropdown dropdown-menu"
+                                     aria-labelledby="dropdownSearch">
+                                    <form action="#" class="searchbox p-2">
+                                        <div class="form-group mb-0 position-relative">
+                                            <input type="text" class="text search-input font-size-12"
+                                                   placeholder="在这里输入进行搜索......">
+                                            <a href="#" class="search-link"><i class="las la-search"></i></a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <li class="nav-item nav-icon dropdown">
+                                <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton01"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ri-question-line"></i>
+                                </a>
+                                <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton01">
+                                    <div class="card shadow-none m-0">
+                                        <div class="card-body p-0 ">
+                                            <div class="p-3">
+                                                <a href="#" class="iq-sub-card pt-0"><i
+                                                        class="ri-questionnaire-line"></i>Help</a>
+                                                <a href="#" class="iq-sub-card"><i class="ri-recycle-line"></i>Training</a>
+                                                <a href="#" class="iq-sub-card"><i
+                                                        class="ri-refresh-line"></i>Updates</a>
+                                                <a href="#" class="iq-sub-card"><i class="ri-service-line"></i>Terms and
+                                                    Policy</a>
+                                                <a href="#" class="iq-sub-card"><i class="ri-feedback-line"></i>Send
+                                                    Feedback</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item nav-icon dropdown">
+                                <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton02"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ri-settings-3-line"></i>
+                                </a>
+                                <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton02">
+                                    <div class="card shadow-none m-0">
+                                        <div class="card-body p-0 ">
+                                            <div class="p-3">
+                                                <a href="#" class="iq-sub-card pt-0"><i class="ri-settings-3-line"></i>
+                                                    设置</a>
+                                                <a href="#" class="iq-sub-card"><i class="ri-hard-drive-line"></i> Get
+                                                    Drive for desktop</a>
+                                                <a href="#" class="iq-sub-card"><i class="ri-keyboard-line"></i>
+                                                    Keyboard Shortcuts</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item nav-icon dropdown caption-content">
+                                <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton03"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="caption bg-primary line-height">P</div>
+                                </a>
+                                <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton03">
+                                    <div class="card mb-0">
+                                        <div class="card-header d-flex justify-content-between align-items-center mb-0">
+                                            <div class="header-title">
+                                                <h4 class="card-title mb-0">用户卡</h4>
+                                            </div>
+                                            <div class="close-data text-right badge badge-primary cursor-pointer "><i
+                                                    class="ri-close-fill"></i></div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="profile-header">
+                                                <div class="cover-container text-center">
+                                                    <div class="rounded-circle profile-icon bg-primary mx-auto d-block">
+                                                        P
+                                                        <a href=""></a>
+                                                    </div>
+                                                    <div class="profile-detail mt-3">
+                                                        <h5><a href="user-profile-edit.html">Panny Marco</a></h5>
+                                                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                                              data-cfemail="1c6c7d727265717d6e7f735c7b717d7570327f7371">[email&#160;protected]</a>
+                                                        </p>
+                                                    </div>
+                                                    <a href="auth-sign-in.html" class="btn btn-primary">登出</a>
+                                                </div>
+                                                <div class="profile-details mt-4 pt-4 border-top">
+                                                    <div class="media align-items-center mb-3">
+                                                        <div class="rounded-circle iq-card-icon-small bg-primary">
+                                                            A
+                                                        </div>
+                                                        <div class="media-body ml-3">
+                                                            <div class="media justify-content-between">
+                                                                <h6 class="mb-0">Anna Mull</h6>
+                                                                <p class="mb-0 font-size-12"><i>Signed Out</i></p>
+                                                            </div>
+                                                            <p class="mb-0 font-size-12"><a
+                                                                    href="/cdn-cgi/l/email-protection"
+                                                                    class="__cf_email__"
+                                                                    data-cfemail="7d1c13131c100811113d1a101c1411531e1210">[email&#160;protected]</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="media align-items-center mb-3">
+                                                        <div class="rounded-circle iq-card-icon-small bg-success">
+                                                            K
+                                                        </div>
+                                                        <div class="media-body ml-3">
+                                                            <div class="media justify-content-between">
+                                                                <h6 class="mb-0">King Poilin</h6>
+                                                                <p class="mb-0 font-size-12"><i>Signed Out</i></p>
+                                                            </div>
+                                                            <p class="mb-0 font-size-12"><a
+                                                                    href="/cdn-cgi/l/email-protection"
+                                                                    class="__cf_email__"
+                                                                    data-cfemail="076c6e696077686e6b6e6947606a666e6b2964686a">[email&#160;protected]</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="media align-items-center">
+                                                        <div class="rounded-circle iq-card-icon-small bg-danger">
+                                                            D
+                                                        </div>
+                                                        <div class="media-body ml-3">
+                                                            <div class="media justify-content-between">
+                                                                <h6 class="mb-0">Devid Worner</h6>
+                                                                <p class="mb-0 font-size-12"><i>Signed Out</i></p>
+                                                            </div>
+                                                            <p class="mb-0 font-size-12"><a
+                                                                    href="/cdn-cgi/l/email-protection"
+                                                                    class="__cf_email__"
+                                                                    data-cfemail="107475667974677f627e756250777d71797c3e737f7d">[email&#160;protected]</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
     <div class="content-page">
         <div class="container-fluid">
             <div class="row">
@@ -324,13 +375,22 @@
                             <div class="select-dropdown input-prepend input-append">
                                 <div class="btn-group">
                                     <label data-toggle="dropdown">
-                                        <div class="dropdown-toggle search-query">My Drive<i class="las la-angle-down ml-3"></i></div><span class="search-replace"></span>
+                                        <div class="dropdown-toggle search-query">我的云盘<i
+                                                class="las la-angle-down ml-3"></i></div>
+                                        <span class="search-replace"></span>
                                         <span class="caret"><!--icon--></span>
                                     </label>
                                     <ul class="dropdown-menu">
-                                        <li><div class="item"><i class="ri-folder-add-line pr-3"></i>New Folder</div></li>
-                                        <li><div class="item"><i class="ri-file-upload-line pr-3"></i>Upload Files</div></li>
-                                        <li><div class="item"><i class="ri-folder-upload-line pr-3"></i>Upload Folders</div></li>
+                                        <li>
+                                            <div class="item"><i class="ri-folder-add-line pr-3"></i>新建文件夹</div>
+                                        </li>
+                                        <li>
+                                            <div class="item"><i class="ri-file-upload-line pr-3"></i>上传文件</div>
+                                        </li>
+                                        <li>
+                                            <div class="item"><i class="ri-folder-upload-line pr-3"></i>上传文件夹
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -359,13 +419,14 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="card card-block card-stretch card-height iq-welcome" style="background: #ffffff url(/assets/images/layouts/mydrive/background.png) no-repeat scroll right center;background-size: contain;">
+                    <div class="card card-block card-stretch card-height iq-welcome"
+                         style="background: #ffffff url(/assets/images/layouts/mydrive/background.png) no-repeat scroll right center;background-size: contain;">
                         <div class="card-body property2-content">
                             <div class="d-flex flex-wrap align-items-center">
                                 <div class="col-lg-6 col-sm-6 p-0">
-                                    <h3 class="mb-3">Welcome Penny</h3>
-                                    <p class="mb-5">You have 32 new notifications and 23 unread messages to reply</p>
-                                    <a href="#">Try Now<i class="las la-arrow-right ml-2"></i></a>
+                                    <h3 class="mb-3">欢迎回来 {#Users}</h3>
+                                    <p class="mb-5">你有 {#Message} 条新信息</p>
+                                    <a href="#">立即试用<i class="las la-arrow-right ml-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -375,27 +436,34 @@
                     <div class="card card-block card-stretch card-height">
                         <div class="card-header d-flex justify-content-between">
                             <div class="header-title">
-                                <h4 class="card-title">Quick Access</h4>
+                                <h4 class="card-title">快速访问</h4>
                             </div>
                         </div>
                         <div class="card-body">
                             <ul class="list-inline p-0 mb-0 row align-items-center">
                                 <li class="col-lg-6 col-sm-6 mb-3 mb-sm-0">
-                                    <div data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.pdf" data-toggle="modal" data-target="#exampleModal" data-title="Product-planning.pdf" style="cursor: pointer;" class="p-2 text-center border rounded">
+                                    <div data-load-file="file" data-load-target="#resolte-contaniner"
+                                         data-url="assets/vendor/doc-viewer/files/demo.pdf" data-toggle="modal"
+                                         data-target="#exampleModal" data-title="Product-planning.pdf"
+                                         style="cursor: pointer;" class="p-2 text-center border rounded">
                                         <div>
-                                            <img src="/assets/images/layouts/mydrive/folder-1.png" class="img-fluid mb-1" alt="image1">
+                                            <img src="/assets/images/layouts/mydrive/folder-1.png"
+                                                 class="img-fluid mb-1" alt="image1">
                                         </div>
-                                        <p class="mb-0">Planning</p>
+                                        <p class="mb-0">计划</p>
                                     </div>
                                 </li>
                                 <li class="col-lg-6 col-sm-6">
-                                    <div data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.docx" data-toggle="modal" data-target="#exampleModal" data-title="Wireframe.docx" style="cursor: pointer;" class="p-2 text-center border rounded">
+                                    <div data-load-file="file" data-load-target="#resolte-contaniner"
+                                         data-url="assets/vendor/doc-viewer/files/demo.docx" data-toggle="modal"
+                                         data-target="#exampleModal" data-title="Wireframe.docx"
+                                         style="cursor: pointer;" class="p-2 text-center border rounded">
                                         <div>
-                                            <img src="/assets/images/layouts/mydrive/folder-2.png" class="img-fluid mb-1" alt="image2">
+                                            <img src="/assets/images/layouts/mydrive/folder-2.png"
+                                                 class="img-fluid mb-1" alt="image2">
                                         </div>
-                                        <p class="mb-0">Wireframe</p>
+                                        <p class="mb-0">框架</p>
                                     </div>
-
                                 </li>
                             </ul>
                         </div>
@@ -405,10 +473,10 @@
                     <div class="card card-block card-stretch card-transparent ">
                         <div class="card-header d-flex justify-content-between pb-0">
                             <div class="header-title">
-                                <h4 class="card-title">Documents</h4>
+                                <h4 class="card-title">文件</h4>
                             </div>
                             <div class="card-header-toolbar d-flex align-items-center">
-                                <a href="./page-folders.html" class=" view-more">View All</a>
+                                <a href="./page-folders.html" class=" view-more">查看全部</a>
                             </div>
                         </div>
                     </div>
@@ -416,7 +484,9 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="card card-block card-stretch card-height">
                         <div class="card-body image-thumb">
-                            <a href="#" data-title="Terms.pdf" data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.pdf" data-toggle="modal" data-target="#exampleModal">
+                            <a href="#" data-title="Terms.pdf" data-load-file="file"
+                               data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.pdf"
+                               data-toggle="modal" data-target="#exampleModal">
                                 <div class="mb-4 text-center p-3 rounded iq-thumb">
                                     <div class="iq-image-overlay"></div>
                                     <img src="/assets/images/layouts/page-1/pdf.png" class="img-fluid" alt="image1">
@@ -429,7 +499,10 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="card card-block card-stretch card-height">
                         <div class="card-body image-thumb">
-                            <a href="#" data-title="New-one.docx" data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.docx" data-toggle="modal" data-target="#exampleModal">
+                            <a href="#" data-title="New-one.docx" data-load-file="file"
+                               data-load-target="#resolte-contaniner"
+                               data-url="assets/vendor/doc-viewer/files/demo.docx" data-toggle="modal"
+                               data-target="#exampleModal">
                                 <div class="mb-4 text-center p-3 rounded iq-thumb">
                                     <div class="iq-image-overlay"></div>
                                     <img src="/assets/images/layouts/page-1/doc.png" class="img-fluid" alt="image1">
@@ -442,7 +515,10 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="card card-block card-stretch card-height">
                         <div class="card-body image-thumb">
-                            <a href="#" data-title="Woo-box.xlsx" data-load-file="file" data-load-target="#resolte-contaniner"  data-url="assets/vendor/doc-viewer/files/demo.xlsx" data-toggle="modal" data-target="#exampleModal">
+                            <a href="#" data-title="Woo-box.xlsx" data-load-file="file"
+                               data-load-target="#resolte-contaniner"
+                               data-url="assets/vendor/doc-viewer/files/demo.xlsx" data-toggle="modal"
+                               data-target="#exampleModal">
                                 <div class="mb-4 text-center p-3 rounded iq-thumb">
                                     <div class="iq-image-overlay"></div>
                                     <img src="/assets/images/layouts/page-1/xlsx.png" class="img-fluid" alt="image1">
@@ -455,7 +531,10 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="card card-block card-stretch card-height">
                         <div class="card-body image-thumb doc-text">
-                            <a href="#" data-title="IOS-content.pptx" data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.pptx" data-toggle="modal" data-target="#exampleModal">
+                            <a href="#" data-title="IOS-content.pptx" data-load-file="file"
+                               data-load-target="#resolte-contaniner"
+                               data-url="assets/vendor/doc-viewer/files/demo.pptx" data-toggle="modal"
+                               data-target="#exampleModal">
                                 <div class="mb-4 text-center p-3 rounded iq-thumb">
                                     <div class="iq-image-overlay"></div>
                                     <img src="/assets/images/layouts/page-1/ppt.png" class="img-fluid" alt="image1">
@@ -469,13 +548,13 @@
                     <div class="card card-block card-stretch card-transparent">
                         <div class="card-header d-flex justify-content-between pb-0">
                             <div class="header-title">
-                                <h4 class="card-title">Folders</h4>
+                                <h4 class="card-title">文件夹</h4>
                             </div>
                             <div class="card-header-toolbar d-flex align-items-center">
                                 <div class="dropdown">
                                     <span class="dropdown-toggle dropdown-bg btn bg-white" id="dropdownMenuButton1"
                                           data-toggle="dropdown">
-                                        Name<i class="ri-arrow-down-s-line ml-1"></i>
+                                        文件名<i class="ri-arrow-down-s-line ml-1"></i>
                                     </span>
                                     <div class="dropdown-menu dropdown-menu-right shadow-none"
                                          aria-labelledby="dropdownMenuButton1">
@@ -499,13 +578,16 @@
                                 </a>
                                 <div class="card-header-toolbar">
                                     <div class="dropdown">
-                                            <span class="dropdown-toggle" id="dropdownMenuButton2" data-toggle="dropdown">
+                                            <span class="dropdown-toggle" id="dropdownMenuButton2"
+                                                  data-toggle="dropdown">
                                                 <i class="ri-more-2-fill"></i>
                                             </span>
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton2">
+                                        <div class="dropdown-menu dropdown-menu-right"
+                                             aria-labelledby="dropdownMenuButton2">
                                             <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
                                             <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                            <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
+                                            <a class="dropdown-item" href="#"><i
+                                                    class="ri-pencil-fill mr-2"></i>Edit</a>
                                             <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
                                             <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
                                         </div>
@@ -514,8 +596,10 @@
                             </div>
                             <a href="./page-alexa.html" class="folder">
                                 <h5 class="mb-2">Alexa Workshop</h5>
-                                <p class="mb-2"><i class="lar la-clock text-danger mr-2 font-size-20"></i> 10 Dec, 2020</p>
-                                <p class="mb-0"><i class="las la-file-alt text-danger mr-2 font-size-20"></i> 08 Files</p>
+                                <p class="mb-2"><i class="lar la-clock text-danger mr-2 font-size-20"></i> 10 Dec, 2020
+                                </p>
+                                <p class="mb-0"><i class="las la-file-alt text-danger mr-2 font-size-20"></i> 08 Files
+                                </p>
                             </a>
                             </a>
                         </div>
@@ -535,10 +619,12 @@
                                         <span class="dropdown-toggle" id="dropdownMenuButton3" data-toggle="dropdown">
                                             <i class="ri-more-2-fill"></i>
                                         </span>
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton3">
+                                        <div class="dropdown-menu dropdown-menu-right"
+                                             aria-labelledby="dropdownMenuButton3">
                                             <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
                                             <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                            <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
+                                            <a class="dropdown-item" href="#"><i
+                                                    class="ri-pencil-fill mr-2"></i>Edit</a>
                                             <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
                                             <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
                                         </div>
@@ -547,8 +633,10 @@
                             </div>
                             <a href="./page-android.html" class="folder">
                                 <h5 class="mb-2">Android</h5>
-                                <p class="mb-2"><i class="lar la-clock text-primary mr-2 font-size-20"></i> 09 Dec, 2020</p>
-                                <p class="mb-0"><i class="las la-file-alt text-primary mr-2 font-size-20"></i> 08 Files</p>
+                                <p class="mb-2"><i class="lar la-clock text-primary mr-2 font-size-20"></i> 09 Dec, 2020
+                                </p>
+                                <p class="mb-0"><i class="las la-file-alt text-primary mr-2 font-size-20"></i> 08 Files
+                                </p>
                             </a>
                         </div>
                     </div>
@@ -567,10 +655,12 @@
                                         <span class="dropdown-toggle" id="dropdownMenuButton4" data-toggle="dropdown">
                                             <i class="ri-more-2-fill"></i>
                                         </span>
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton4">
+                                        <div class="dropdown-menu dropdown-menu-right"
+                                             aria-labelledby="dropdownMenuButton4">
                                             <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
                                             <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                            <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
+                                            <a class="dropdown-item" href="#"><i
+                                                    class="ri-pencil-fill mr-2"></i>Edit</a>
                                             <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
                                             <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
                                         </div>
@@ -579,7 +669,8 @@
                             </div>
                             <a href="./page-brightspot.html" class="folder">
                                 <h5 class="mb-2">Brightspot</h5>
-                                <p class="mb-2"><i class="lar la-clock text-info mr-2 font-size-20"></i> 07 Dec, 2020</p>
+                                <p class="mb-2"><i class="lar la-clock text-info mr-2 font-size-20"></i> 07 Dec, 2020
+                                </p>
                                 <p class="mb-0"><i class="las la-file-alt text-info mr-2 font-size-20"></i> 08 Files</p>
                             </a>
                         </div>
@@ -599,10 +690,12 @@
                                         <span class="dropdown-toggle" id="dropdownMenuButton5" data-toggle="dropdown">
                                             <i class="ri-more-2-fill"></i>
                                         </span>
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton5">
+                                        <div class="dropdown-menu dropdown-menu-right"
+                                             aria-labelledby="dropdownMenuButton5">
                                             <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
                                             <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                            <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
+                                            <a class="dropdown-item" href="#"><i
+                                                    class="ri-pencil-fill mr-2"></i>Edit</a>
                                             <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
                                             <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
                                         </div>
@@ -611,8 +704,10 @@
                             </div>
                             <a href="./page-ionic.html" class="folder">
                                 <h5 class="mb-2">Ionic Chat App</h5>
-                                <p class="mb-2"><i class="lar la-clock text-success mr-2 font-size-20"></i> 06 Dec, 2020</p>
-                                <p class="mb-0"><i class="las la-file-alt text-success mr-2 font-size-20"></i> 08 Files</p>
+                                <p class="mb-2"><i class="lar la-clock text-success mr-2 font-size-20"></i> 06 Dec, 2020
+                                </p>
+                                <p class="mb-0"><i class="las la-file-alt text-success mr-2 font-size-20"></i> 08 Files
+                                </p>
                             </a>
                         </div>
                     </div>
@@ -621,10 +716,10 @@
                     <div class="card card-block card-stretch card-height files-table">
                         <div class="card-header d-flex justify-content-between">
                             <div class="header-title">
-                                <h4 class="card-title">Files</h4>
+                                <h4 class="card-title">文件</h4>
                             </div>
                             <div class="card-header-toolbar d-flex align-items-center">
-                                <a href="./page-files.html" class=" view-more">View All</a>
+                                <a href="./page-files.html" class=" view-more">查看全部</a>
                             </div>
                         </div>
                         <div class="card-body pt-0">
@@ -632,10 +727,10 @@
                                 <table class="table mb-0 table-borderless tbl-server-info">
                                     <thead>
                                     <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Members</th>
-                                        <th scope="col">Last Edit</th>
-                                        <th scope="col">Size</th>
+                                        <th scope="col">文件名</th>
+                                        <th scope="col">成员</th>
+                                        <th scope="col">最后编辑</th>
+                                        <th scope="col">文件大小</th>
                                         <th scope="col"></th>
                                     </tr>
                                     </thead>
@@ -646,7 +741,12 @@
                                                 <div class="icon-small bg-danger rounded mr-3">
                                                     <i class="ri-file-excel-line"></i>
                                                 </div>
-                                                <div data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.pdf" data-toggle="modal" data-target="#exampleModal" data-title="Weekly-report.pdf" style="cursor: pointer;">Weekly-report.pdf</div>
+                                                <div data-load-file="file" data-load-target="#resolte-contaniner"
+                                                     data-url="assets/vendor/doc-viewer/files/demo.pdf"
+                                                     data-toggle="modal" data-target="#exampleModal"
+                                                     data-title="Weekly-report.pdf" style="cursor: pointer;">
+                                                    Weekly-report.pdf
+                                                </div>
                                             </div>
                                         </td>
                                         <td>Me</td>
@@ -654,15 +754,21 @@
                                         <td>02 MB</td>
                                         <td>
                                             <div class="dropdown">
-                                                <span class="dropdown-toggle" id="dropdownMenuButton6" data-toggle="dropdown">
+                                                <span class="dropdown-toggle" id="dropdownMenuButton6"
+                                                      data-toggle="dropdown">
                                                     <i class="ri-more-fill"></i>
                                                 </span>
-                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton6">
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                     aria-labelledby="dropdownMenuButton6">
                                                     <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-pencil-fill mr-2"></i>Edit</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-printer-fill mr-2"></i>Print</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-file-download-fill mr-2"></i>Download</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -673,7 +779,11 @@
                                                 <div class="icon-small bg-primary rounded mr-3">
                                                     <i class="ri-file-download-line"></i>
                                                 </div>
-                                                <div data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.pdf" data-toggle="modal" data-target="#exampleModal" data-title="VueJs.pdf" style="cursor: pointer;">VueJs.pdf</div>
+                                                <div data-load-file="file" data-load-target="#resolte-contaniner"
+                                                     data-url="assets/vendor/doc-viewer/files/demo.pdf"
+                                                     data-toggle="modal" data-target="#exampleModal"
+                                                     data-title="VueJs.pdf" style="cursor: pointer;">VueJs.pdf
+                                                </div>
                                             </div>
                                         </td>
                                         <td>Poul Molive</td>
@@ -681,15 +791,21 @@
                                         <td>64 MB</td>
                                         <td>
                                             <div class="dropdown">
-                                                <span class="dropdown-toggle" id="dropdownMenuButton7" data-toggle="dropdown">
+                                                <span class="dropdown-toggle" id="dropdownMenuButton7"
+                                                      data-toggle="dropdown">
                                                     <i class="ri-more-fill"></i>
                                                 </span>
-                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton7">
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                     aria-labelledby="dropdownMenuButton7">
                                                     <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-pencil-fill mr-2"></i>Edit</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-printer-fill mr-2"></i>Print</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-file-download-fill mr-2"></i>Download</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -700,7 +816,11 @@
                                                 <div class="icon-small bg-info rounded mr-3">
                                                     <i class="ri-file-excel-line"></i>
                                                 </div>
-                                                <div data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.docx" data-toggle="modal" data-target="#exampleModal" data-title="Milestone.docx" style="cursor: pointer;">Milestone.docx</div>
+                                                <div data-load-file="file" data-load-target="#resolte-contaniner"
+                                                     data-url="assets/vendor/doc-viewer/files/demo.docx"
+                                                     data-toggle="modal" data-target="#exampleModal"
+                                                     data-title="Milestone.docx" style="cursor: pointer;">Milestone.docx
+                                                </div>
                                             </div>
                                         </td>
                                         <td>Me</td>
@@ -708,15 +828,21 @@
                                         <td>30 MB</td>
                                         <td>
                                             <div class="dropdown">
-                                                <span class="dropdown-toggle" id="dropdownMenuButton8" data-toggle="dropdown">
+                                                <span class="dropdown-toggle" id="dropdownMenuButton8"
+                                                      data-toggle="dropdown">
                                                     <i class="ri-more-fill"></i>
                                                 </span>
-                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton8">
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                     aria-labelledby="dropdownMenuButton8">
                                                     <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-pencil-fill mr-2"></i>Edit</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-printer-fill mr-2"></i>Print</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-file-download-fill mr-2"></i>Download</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -727,7 +853,12 @@
                                                 <div class="icon-small bg-success rounded mr-3">
                                                     <i class="ri-file-excel-line"></i>
                                                 </div>
-                                                <div data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.xlsx" data-toggle="modal" data-target="#exampleModal" data-title="Training center.xlsx" style="cursor: pointer;">Training center.xlsx</div>
+                                                <div data-load-file="file" data-load-target="#resolte-contaniner"
+                                                     data-url="assets/vendor/doc-viewer/files/demo.xlsx"
+                                                     data-toggle="modal" data-target="#exampleModal"
+                                                     data-title="Training center.xlsx" style="cursor: pointer;">Training
+                                                    center.xlsx
+                                                </div>
                                             </div>
                                         </td>
                                         <td>Me</td>
@@ -735,15 +866,21 @@
                                         <td>10 MB</td>
                                         <td>
                                             <div class="dropdown">
-                                                <span class="dropdown-toggle" id="dropdownMenuButton9" data-toggle="dropdown">
+                                                <span class="dropdown-toggle" id="dropdownMenuButton9"
+                                                      data-toggle="dropdown">
                                                     <i class="ri-more-fill"></i>
                                                 </span>
-                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton9">
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                     aria-labelledby="dropdownMenuButton9">
                                                     <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-pencil-fill mr-2"></i>Edit</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-printer-fill mr-2"></i>Print</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-file-download-fill mr-2"></i>Download</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -754,7 +891,11 @@
                                                 <div class="icon-small bg-warning rounded mr-3">
                                                     <i class="ri-file-excel-line"></i>
                                                 </div>
-                                                <div data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.pptx" data-toggle="modal" data-target="#exampleModal" data-title="Flavour.pptx" style="cursor: pointer;">Flavour.pptx</div>
+                                                <div data-load-file="file" data-load-target="#resolte-contaniner"
+                                                     data-url="assets/vendor/doc-viewer/files/demo.pptx"
+                                                     data-toggle="modal" data-target="#exampleModal"
+                                                     data-title="Flavour.pptx" style="cursor: pointer;">Flavour.pptx
+                                                </div>
                                             </div>
                                         </td>
                                         <td>Me</td>
@@ -762,15 +903,21 @@
                                         <td>10 MB</td>
                                         <td>
                                             <div class="dropdown">
-                                                <span class="dropdown-toggle" id="dropdownMenuButton9" data-toggle="dropdown">
+                                                <span class="dropdown-toggle" id="dropdownMenuButton9"
+                                                      data-toggle="dropdown">
                                                     <i class="ri-more-fill"></i>
                                                 </span>
-                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton9">
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                     aria-labelledby="dropdownMenuButton9">
                                                     <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-pencil-fill mr-2"></i>Edit</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-printer-fill mr-2"></i>Print</a>
+                                                    <a class="dropdown-item" href="#"><i
+                                                            class="ri-file-download-fill mr-2"></i>Download</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -785,7 +932,7 @@
                     <div class="card card-block card-stretch card-height ">
                         <div class="card-header d-flex justify-content-between">
                             <div class="header-title">
-                                <h4 class="card-title">Statistic</h4>
+                                <h4 class="card-title">使用统计</h4>
                             </div>
                         </div>
                         <div class="card-body">
@@ -797,8 +944,8 @@
                                             <i class="las la-long-arrow-alt-down"></i>
                                         </div>
                                         <div class="media-body ml-3">
-                                            <p class="mb-0">Downloads</p>
-                                            <h5>12,594</h5>
+                                            <p class="mb-0">下载</p>
+                                            <h5>#{Value}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -808,8 +955,8 @@
                                             <i class="las la-long-arrow-alt-up"></i>
                                         </div>
                                         <div class="media-body ml-3">
-                                            <p class="mb-0">Uploads</p>
-                                            <h5>1,458</h5>
+                                            <p class="mb-0">上传</p>
+                                            <h5>#{Value}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -820,14 +967,15 @@
                 <div class="col-lg-4">
                     <div class="card card-block card-stretch card-height  plan-bg">
                         <div class="card-body">
-                            <h4 class="mb-3 text-white">Unlock Your plan</h4>
-                            <p>Expanded Storage, Access To<br> More Features On CloudBOX</p>
+                            <h4 class="mb-3 text-white">解锁你的新计划</h4>
+                            <p>扩展更多的存储空间，访问 <br> Popcornet的更多功能</p>
                             <div class="row align-items-center justify-content-between">
                                 <div class="col-6 go-white ">
-                                    <a href="#" class="btn d-inline-block mt-5">Go Premium</a>
+                                    <a href="#" class="btn d-inline-block mt-5">升级至高级版</a>
                                 </div>
                                 <div class="col-6">
-                                    <img src="/assets/images/layouts/mydrive/lock-bg.png" class="img-fluid" alt="image1">
+                                    <img src="/assets/images/layouts/mydrive/lock-bg.png" class="img-fluid"
+                                         alt="image1">
                                 </div>
                             </div>
                         </div>
@@ -837,19 +985,20 @@
                     <div class="card card-block card-stretch card-height">
                         <div class="card-header d-flex justify-content-between pb-0">
                             <div class="header-title">
-                                <h4 class="card-title">Storage</h4>
+                                <h4 class="card-title">存储空间</h4>
                             </div>
                             <div class="card-header-toolbar d-flex align-items-center">
                                 <div class="dropdown">
-                                    <span class="dropdown-toggle btn  dropdown-bg border border-primary text-primary rounded" id="dropdownMenuButton11"
+                                    <span class="dropdown-toggle btn  dropdown-bg border border-primary text-primary rounded"
+                                          id="dropdownMenuButton11"
                                           data-toggle="dropdown">
                                         Monthly<i class="ri-arrow-down-s-line ml-1"></i>
                                     </span>
                                     <div class="dropdown-menu dropdown-menu-right shadow-none"
                                          aria-labelledby="dropdownMenuButton11">
-                                        <a class="dropdown-item" href="#">Monthly</a>
-                                        <a class="dropdown-item" href="#">Weekly</a>
-                                        <a class="dropdown-item" href="#">Yearly</a>
+                                        <a class="dropdown-item" href="#">每月</a>
+                                        <a class="dropdown-item" href="#">每周</a>
+                                        <a class="dropdown-item" href="#">每年</a>
                                     </div>
                                 </div>
                             </div>
