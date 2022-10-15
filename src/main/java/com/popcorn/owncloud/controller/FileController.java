@@ -44,14 +44,13 @@ public class FileController {
 
     @GetMapping("/files")
     public String files(Model model) throws IOException {
-        List<FileObject> fileObjects = Files.walk(fileBasePath,1)
-                .filter(path -> !path.equals(fileBasePath))
-                .map(path -> {
-                    String url = MvcUriComponentsBuilder.fromMethodName(FileController
-                            .class,"loadFile",
-                            path.getFileName().toString()).build().toString();
-                    FileObject fileObject = new FileObject(path.getFileName().toString(),url);
-                })
+//        List<FileObject> fileObjects = Files.walk(fileBasePath,1)
+//                .filter(path -> !path.equals(fileBasePath))
+//                .map(path -> {
+//                    String url = MvcUriComponentsBuilder.fromMethodName(FileController
+//                            .class,"loadFile",
+//                            path.getFileName().toString()).build().toString();
+////                })
         return null;
     }
 }
