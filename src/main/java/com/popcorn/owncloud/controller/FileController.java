@@ -1,56 +1,67 @@
 package com.popcorn.owncloud.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
+import ch.qos.logback.core.util.FileUtil;
+import com.popcorn.owncloud.service.FileService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.util.FileSystemUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
-import javax.tools.FileObject;
-import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.List;
-import java.util.stream.Collectors;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.rmi.server.ExportException;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @Controller
 public class FileController {
-    @Value("$file.base.director")
-    private String fileBaseDirector;
-    private Path fileBasePath;
+    @Resource
+    private FileService service;
 
-    @Autowired
-    private void createDirectories(){
-        try {
-            Files.createDirectories(Paths.get(fileBaseDirector));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        this.fileBasePath = Path.of(fileBaseDirector);
-    }
+    /**
+     * 多文件上传
+     * @param request 请求信息
+     * @param filePath 上传文件路径
+     * @return dataMap
+     */
+   @RequestMapping(value = "/uploadMulti",method = RequestMethod.POST)
+    public Object uploadMulti(HttpServletRequest request, String filePath) {
+       Map<String, Object> dataMap = new HashMap<>();
+       try{
+           String str = service.uploadMulti(request,filePath);
+           dataMap.put("data", str);
+           dataMap.put("code",200);
+           dataMap.put("msg","多文件上传成功");
+       } catch (Exception e) {
+           e.printStackTrace();
+           dataMap.put("data","");
+           dataMap.put("code",500);
+           dataMap.put("msg","多文件上传失败");
+       }
+       return dataMap;
+   }
 
-    @GetMapping("/files")
-    public String files(Model model) throws IOException {
-//        List<FileObject> fileObjects = Files.walk(fileBasePath,1)
-//                .filter(path -> !path.equals(fileBasePath))
-//                .map(path -> {
-//                    String url = MvcUriComponentsBuilder.fromMethodName(FileController
-//                            .class,"loadFile",
-//                            path.getFileName().toString()).build().toString();
-////                })
-        return null;
-    }
+    /**
+     *
+     * @param files 待上传文件的文件夹
+     * @param filePath 需要上传的目录路径
+     * @return dataMap
+     */
+   @RequestMapping(value = "/uploadFolder",method = RequestMethod.POST)
+    public Object uploadFolder(MultipartFile[] files, String filePath) {
+       Map<String, Object> dataMap = new HashMap<>();
+       try {
+           service.uploadMultiFolder(filePath,files);
+           dataMap.put("data" , "");
+           dataMap.put("code" , 200);
+           dataMap.put("msg","文件上传成功");
+       } catch (ExportException e) {
+           dataMap.put("data" , "");
+           dataMap.put("code" , 500);
+           dataMap.put("msg" , "文件上传失败");
+           e.printStackTrace();
+       }
+       return dataMap;
+   }
 }
+
