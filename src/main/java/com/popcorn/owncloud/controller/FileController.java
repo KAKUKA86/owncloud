@@ -24,11 +24,11 @@ public class FileController {
      * @param filePath 上传文件路径
      * @return dataMap
      */
-   @RequestMapping(value = "/uploadMulti",method = RequestMethod.POST)
-    public Object uploadMulti(HttpServletRequest request, String filePath) {
+   @RequestMapping(value = "/uploadMultiFile",method = RequestMethod.POST)
+    public Object uploadMultiFile(HttpServletRequest request, String filePath) {
        Map<String, Object> dataMap = new HashMap<>();
        try{
-           String str = service.uploadMulti(request,filePath);
+           String str = service.uploadMultiFile(request,filePath);
            dataMap.put("data", str);
            dataMap.put("code",200);
            dataMap.put("msg","多文件上传成功");
@@ -50,17 +50,17 @@ public class FileController {
    @RequestMapping(value = "/uploadFolder",method = RequestMethod.POST)
     public Object uploadFolder(MultipartFile[] files, String filePath) {
        Map<String, Object> dataMap = new HashMap<>();
-       try {
+//       try {
            service.uploadMultiFolder(filePath,files);
            dataMap.put("data" , "");
            dataMap.put("code" , 200);
            dataMap.put("msg","文件上传成功");
-       } catch (ExportException e) {
-           dataMap.put("data" , "");
-           dataMap.put("code" , 500);
-           dataMap.put("msg" , "文件上传失败");
-           e.printStackTrace();
-       }
+//       } catch (ExportException e) {
+//           dataMap.put("data" , "");
+//           dataMap.put("code" , 500);
+//           dataMap.put("msg" , "文件上传失败");
+//           e.printStackTrace();
+//       }
        return dataMap;
    }
 }
