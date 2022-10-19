@@ -5,6 +5,9 @@ import com.popcorn.owncloud.service.FileService;
 import org.apache.commons.fileupload.FileItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -23,12 +26,14 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
+@ConfigurationProperties(prefix = "application")
+
 public class FileServiceImpl implements FileService {
 
     @Autowired
     private FileMapper mapper;
 
-    @Value("${fileManager.dirPath}")
+    @Value("#{file.fileUrl}")
     private String dirPath;
 
     /**
@@ -39,7 +44,6 @@ public class FileServiceImpl implements FileService {
     @Override
     public Object multiUploadFiles(HttpServletRequest request, String path) {
         List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
-        String filePath = path;
 
         int failCount = 0;
         int successCount = 0;
@@ -52,16 +56,13 @@ public class FileServiceImpl implements FileService {
                 return "上传第" + (i++) + "个文件失败";
             }
             String fileName = file.getOriginalFilename();
-
-            File dest = new File(filePath + fileName);
-
+            File dest = new File(path + fileName);
             try {
                 file.transferTo(dest);
                 successCount++;
             } catch (IOException e) {
                 failCount++;
                 e.printStackTrace();
-                ;
                 return "上传第" + (i++) + "个文件失败";
             }
         }
@@ -69,7 +70,6 @@ public class FileServiceImpl implements FileService {
         uploadMap.put("successNumber", successCount);
         return uploadMap;
     }
-
     /**
      * 创建多级目录
      *
@@ -99,8 +99,7 @@ public class FileServiceImpl implements FileService {
     }
 
     /**
-     * 删除路径
-     *
+     * 删除文件
      * @param filePath 文件路径
      */
     @Override
@@ -111,11 +110,11 @@ public class FileServiceImpl implements FileService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     /**
      * 删除某个文件下所有文件及文件夹
+     *
      * @param rootFilePath 根目录
      * @return boolean
      */
@@ -156,7 +155,7 @@ public class FileServiceImpl implements FileService {
     /**
      * 修改文件名
      *
-     * @param filePath 文件路径
+     * @param filePath    文件路径
      * @param newFileName 新的文件名
      * @return 新的文件名
      */
@@ -189,11 +188,14 @@ public class FileServiceImpl implements FileService {
 
     /**
      * 上传多个文件
+     *
      * @param basePath 文件路径
      * @param files    文件
      */
     @Override
     public void uploadMultiFolder(String basePath, MultipartFile[] files) {
+
+
         if (files == null || files.length == 0) {
             return;
         }
@@ -234,6 +236,7 @@ public class FileServiceImpl implements FileService {
 
     /**
      * 获取原始目录
+     *
      * @return 目录
      */
     @Override
@@ -244,17 +247,17 @@ public class FileServiceImpl implements FileService {
     @Override
     public List<String> getAllDirs(String directoryPath, boolean isAddDirectory) {
         List<String> list = new ArrayList<String>();
-        File baseFile = new File (directoryPath);
+        File baseFile = new File(directoryPath);
         if (baseFile.isFile() || !baseFile.exists()) {
             return list;
         }
         File[] files = baseFile.listFiles();
         for (File file : files) {
             if (file.isDirectory()) {
-                if (isAddDirectory){
-                   list.add(file.getAbsolutePath());
+                if (isAddDirectory) {
+                    list.add(file.getAbsolutePath());
                 }
-                list.addAll(getAllDirs(file.getAbsolutePath(),isAddDirectory));
+                list.addAll(getAllDirs(file.getAbsolutePath(), isAddDirectory));
             }
         }
         return list;
@@ -262,13 +265,14 @@ public class FileServiceImpl implements FileService {
 
     /**
      * 获取路径下的所有文件
+     *
      * @param directoryPath 文件夹路径
      * @return
      */
 
     @Override
     public List<Object> getAllFiles(String directoryPath) {
-        List <Object> list = new ArrayList<Object>();
+        List<Object> list = new ArrayList<Object>();
         File baseFile = new File(directoryPath);
         if (baseFile.isFile() || !baseFile.exists()) {
             return list;
@@ -277,10 +281,10 @@ public class FileServiceImpl implements FileService {
         for (File file : files) {
             Map<String, String> map = new HashMap<>();
             if (file.isFile()) {
-                map.put("fileName",file.getName());
+                map.put("fileName", file.getName());
                 map.put("filePath", file.getAbsolutePath());
-                map.put("time",getFileTime(file.getAbsolutePath()));
-                map.put("size",getFileSize(file.getAbsolutePath()));
+                map.put("time", getFileTime(file.getAbsolutePath()));
+                map.put("size", getFileSize(file.getAbsolutePath()));
                 list.add(map);
             }
         }
@@ -289,6 +293,7 @@ public class FileServiceImpl implements FileService {
 
     /**
      * 获取文件最后修改时间
+     *
      * @param filePath 文件目录
      * @return
      */
@@ -302,6 +307,7 @@ public class FileServiceImpl implements FileService {
 
     /**
      * 获取文件大小
+     *
      * @param path
      * @return
      */
@@ -314,6 +320,7 @@ public class FileServiceImpl implements FileService {
 
     /**
      * 转换文件大小
+     *
      * @param fileLength 文件大小
      * @return
      */
@@ -322,22 +329,21 @@ public class FileServiceImpl implements FileService {
         DecimalFormat decimalFormat = new DecimalFormat("#.00");
         DecimalFormat decimal = new DecimalFormat("#");
         String fileSizeString = "";
-        if (fileLength < 1024) {
-            fileSizeString = decimal.format((double) fileLength)+"B";
-        } else if (fileLength <1048576) {
-            fileSizeString = decimalFormat.format((double) fileLength / 1024)+"KB";
-        } else if (fileLength < 1073741824) {
-            fileSizeString = decimalFormat.format((double) fileLength/1048576) +"MB";
-        }else {
-            fileSizeString = decimalFormat.format((double) fileLength/1073741824) + "GB";
-        }
+        if (fileLength < 1024)
+            fileSizeString = decimal.format((double) fileLength) + "B";
+        else if (fileLength < 1048576)
+            fileSizeString = decimalFormat.format((double) fileLength / 1024) + "KB";
+        else if (fileLength < 1073741824)
+            fileSizeString = decimalFormat.format((double) fileLength / 1048576) + "MB";
+        else
+            fileSizeString = decimalFormat.format((double) fileLength / 1073741824) + "GB";
         return fileSizeString;
     }
 
     /**
      * 多文件上传 服务层
      *
-     * @param request 请求
+     * @param request  请求
      * @param filePath 文件路径
      * @return String 状态
      */
@@ -363,9 +369,8 @@ public class FileServiceImpl implements FileService {
                     e.printStackTrace();
                     return i + " 个文件上传失败";
                 }
-            } else {
+            } else
                 return i + " 个文件是空的";
-            }
         }
         filePath = filePathBuilder.toString();
         return "多个文件上传成功";

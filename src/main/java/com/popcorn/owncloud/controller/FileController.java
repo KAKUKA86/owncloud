@@ -1,83 +1,129 @@
 package com.popcorn.owncloud.controller;
 
-import ch.qos.logback.core.util.FileUtil;
 import com.popcorn.owncloud.service.FileService;
+import com.popcorn.owncloud.util.FileUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.annotation.Resource;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-import java.rmi.server.ExportException;
-import java.util.HashMap;
-import java.util.Map;
-
+import java.io.*;
+import java.util.List;
 
 @Controller
+@RequestMapping(value = "/file")
 public class FileController {
-    @Resource
-    private FileService service;
+    public String upload(HttpServletRequest request) {
+        MultipartHttpServletRequest params = ((MultipartHttpServletRequest) request);
+        List<MultipartFile> files = params.getFiles("fileFolder");
+        System.out.println("上传文件夹");
+        File file;
+        String fileName = "";
+        String filePath = "";
+        for (MultipartFile f : files) {
+            fileName = f.getOriginalFilename();
+            String type = f.getContentType();
+            System.out.println("\n" + fileName + " ," + type);
+            filePath = "D:\\upload\\" + fileName.substring(0, fileName.lastIndexOf("\\"));
+            if (!isDir(filePath)) {
+                makeDirs(filePath);
+            }
+            file = new File("D:\\upload\\" + fileName);
+            try {
+                file.createNewFile();
+                f.transferTo(file);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return "fileList";
+    }
+
+    public boolean isFile(String filePath) {
+        File f = new File(filePath);
+        return f.exists() && f.isFile();
+    }
+
+    public boolean isDir(String filePath) {
+        File f = new File(filePath);
+        return f.exists() && f.isDirectory();
+    }
 
     /**
-     * 多文件上传
+     * 创建目录
      *
-     * @param request  请求信息
-     * @param filePath 上传文件路径
-     * @return dataMap
+     * @param path 目录
      */
-    @RequestMapping(value = "/uploadMultiFile", method = RequestMethod.POST)
-    public Object uploadMultiFile(HttpServletRequest request, String filePath) {
-        Map<String, Object> dataMap = new HashMap<>();
-        try {
-            String str = service.uploadMultiFile(request, filePath);
-            dataMap.put("data", str);
-            dataMap.put("code", 200);
-            dataMap.put("msg", "多文件上传成功");
-        } catch (Exception e) {
-            e.printStackTrace();
-            dataMap.put("data", "");
-            dataMap.put("code", 500);
-            dataMap.put("msg", "多文件上传失败");
+    public void makeDirs(String path) {
+        File file = new File(path);
+        //如果文件夹不存在则创建文件夹
+        if (!file.exists() && !file.isDirectory()) {
+            file.mkdirs();
+        } else {
+            System.out.println("创建目录失败：" + path);
         }
-        return dataMap;
     }
 
     /**
-     * @param files    待上传文件的文件夹
-     * @param filePath 需要上传的目录路径
-     * @return dataMap
+     * 上传文件夹
+     *
+     * @param file 文件夹
+     * @param path 路径
+     * @return 状态
      */
-    @RequestMapping(value = "/uploadFolder", method = RequestMethod.POST)
-    public Object uploadFolder(MultipartFile[] files, String filePath) {
-        Map<String, Object> dataMap = new HashMap<>();
-//       try {
-        service.uploadMultiFolder(filePath, files);
-        dataMap.put("data", "");
-        dataMap.put("code", 200);
-        dataMap.put("msg", "文件上传成功");
-//       } catch (ExportException e) {
-//           dataMap.put("data" , "");
-//           dataMap.put("code" , 500);
-//           dataMap.put("msg" , "文件上传失败");
-//           e.printStackTrace();
-//       }
-        return dataMap;
+    @PostMapping("/uploadDir")
+    @ResponseBody
+    public String uploadDir(@RequestParam("file") MultipartFile file, @RequestParam("path") String path) {
+        if (file.isEmpty()) {
+            return "上传失败，请选择文件";
+        }
+        System.out.println("aaaaaaaaaaaaaaaaaa");
+        String fileName = file.getOriginalFilename();
+        String filePath = path;
+        System.out.println(filePath);
+
+        File dest = new File(filePath + fileName);
+
+        try {
+            file.transferTo(dest);
+            return "上传成功";
+        } catch (IOException ignored) {
+
+        }
+        return "上传失败";
     }
 
-    @RequestMapping("/download")
-    public String download(HttpServletResponse response, String filePath) throws UnsupportedEncodingException {
-        File file = new File(filePath);
-        String fileName = filePath.substring(filePath.lastIndexOf("/") + 1);
-        if (file.exists()) {
-            response.setContentType("application/force-download");
-            response.setHeader("Content-Disposition","attachment;filename=" + fileName + ";filename*=utf-8''"
-            + URLEncoder.encode(fileName, StandardCharsets.UTF_8));
+    /**
+     * 上传多个文件
+     * @param request 请求
+     * @return 状态
+     */
+    @RequestMapping(value = "/uploadMulti", method = RequestMethod.POST)
+    @ResponseBody
+    public Object uploadMulti(HttpServletRequest request) {
+        List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
+        MultipartFile file = null;
+        BufferedOutputStream stream = null;
+        for (int i = 0; i < files.size(); i++) {
+            file = files.get(i);
+            String filePath = "D:\\upload";
+            if (!file.isEmpty()) {
+                try {
+                    byte[] bytes = file.getBytes();
+                    stream = new BufferedOutputStream(new FileOutputStream(
+                            new File(filePath + file.getOriginalFilename())
+                    ));
+                    stream.write(bytes);
+                    stream.close();
+                } catch (Exception e) {
+                    stream = null;
+                    e.printStackTrace();
+                    return "the" + i + "file upload failure";
+                }
+            } else {
+                return "the" + i + "file is empty";
+            }
         }
-        return null;
+        return "upload multiFile success";
     }
 }
