@@ -12,5 +12,10 @@ public class PageController {
         return "normalUser/userHomePage";
     }
 
+    @RequestMapping("admin/user-list")
+    public String userList() {
+        return "admin/user-list";
+    }
+
 
 }
