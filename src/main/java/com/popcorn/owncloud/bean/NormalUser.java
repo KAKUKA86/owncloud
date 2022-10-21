@@ -3,8 +3,8 @@ package com.popcorn.owncloud.bean;
 
 import org.springframework.stereotype.Component;
 
-
 @Component
+
 public class NormalUser {
     /**
      * 用户ID

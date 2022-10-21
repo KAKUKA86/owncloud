@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
@@ -50,8 +50,8 @@
         <div class="data-scrollbar" data-scroll="1">
             <nav class="iq-sidebar-menu">
                 <ul id="iq-sidebar-toggle" class="iq-menu">
-                    <li class="active">
-                        <a href="/user-list">
+                    <li class="">
+                        <a href="admin/user-list">
                             <i class="las la-list-alt"></i><span>用户列表</span>
                         </a>
                     </li>
@@ -62,8 +62,8 @@
                             <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
                         </a>
                         <ul id="otherpage" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                            <li class="">
-                                <a href="admin-list">
+                            <li class="active">
+                                <a href="admin/admin-list">
                                     <i class="las la-list-alt"></i><span>管理员列表</span>
                                 </a>
                             </li>
@@ -364,7 +364,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between">
                             <div class="header-title">
-                                <h4 class="card-title">用户列表</h4>
+                                <h4 class="card-title">管理员列表</h4>
                             </div>
                         </div>
                         <div class="card-body">
@@ -398,28 +398,20 @@
                                        aria-describedby="user-list-page-info">
                                     <thead>
                                     <tr>
-                                        <th scope="col">角色画像</th>
-                                        <th scope="col">UID</th>
+                                        <th scope="col">AID</th>
                                         <th scope="col">用户名</th>
-                                        <th scope="col">文件审核通道</th>
+                                        <th scope="col">管理员等级</th>
                                         <th scope="col">电话号码</th>
-                                        <th scope="col">注册时间</th>
-                                        <th scope="col">最后登录时间</th>
                                         <th scope="col">操作</th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
-                                    <tr th:each="user:${tables}">
-                                        <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                                                     src="/assets/images/user/01.jpg" alt="profile">
-                                        </td>
-                                        <td th:text="${user.userID}"></td>
-                                        <td th:text="${user.userName}"></td>
-                                        <td th:text="${user.userStorage}"></td>
-                                        <td th:text="${user.userPhoneNumber}"></td>
-                                        <td th:text="${user.userRegisterTimestamp}"></td>
-                                        <td th:text="${user.userLastLoginTimestamp}"></td>
+                                    <tr th:each="admin:${tables}">
+                                        <td th:text="${admin.adminId}"></td>
+                                        <td th:text="${admin.adminName}"></td>
+                                        <td th:text="${admin.adminLevel}"></td>
+                                        <td th:text="${admin.adminPhoneNumber}"></td>
                                         <td>
                                             <div class="flex align-items-center list-user-action">
                                                 <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
@@ -427,7 +419,7 @@
                                                         class="ri-pencil-line"></i></a>
                                                 <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
                                                    title="" data-original-title="删除"
-                                                   th:onclick="'delUser('+${user.userID}+')'"><i
+                                                   th:onclick="'delUser('+${admin.adminId}+')'"><i
                                                         class="ri-delete-bin-line"></i></a>
                                                 <script>
                                                     function delUser (id) {
@@ -437,31 +429,6 @@
                                                             })
                                                     }
                                                 </script>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                                                     src="/assets/images/user/01.jpg" alt="profile"></td>
-                                        <td>-1</td>
-                                        <td>Test(假数据)</td>
-                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                               data-cfemail="660708080715120e03150f0726010b070f0a4805090b">文件锁定</a>
-                                        </td>
-                                        <td><span class="badge iq-bg-primary">13000000000</span></td>
-                                        <td>2019/12/01</td>
-                                        <td>2019/12/01</td>
-                                        <td>
-                                            <div class="flex align-items-center list-user-action">
-                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                   title="" data-original-title="Add" href="#"><i
-                                                        class="ri-user-add-line"></i></a>
-                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                   title="" data-original-title="Edit" href="#"><i
-                                                        class="ri-pencil-line"></i></a>
-                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                   title="" data-original-title="Delete" href="#"><i
-                                                        class="ri-delete-bin-line"></i></a>
                                             </div>
                                         </td>
                                     </tr>

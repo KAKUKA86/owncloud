@@ -15,7 +15,8 @@ public class Administrator {
     Integer adminLevel;
     String adminName;
     String adminPassword;
-    Long adminNumber;
+
+    Long adminPhoneNumber;
 
     public Integer getAdminLevel() {
         return adminLevel;
@@ -49,11 +50,11 @@ public class Administrator {
         this.adminPassword = adminPassword;
     }
 
-    public Long getAdminNumber() {
-        return adminNumber;
+    public Long getAdminPhoneNumber() {
+        return adminPhoneNumber;
     }
 
-    public void setAdminNumber(Long adminNumber) {
-        this.adminNumber = adminNumber;
+    public void setAdminPhoneNumber(Long adminPhoneNumber) {
+        this.adminPhoneNumber = adminPhoneNumber;
     }
 }

@@ -10,7 +10,7 @@ public interface AdministratorMapper {
     @Select("select * from admin_table where admin_name = #{adminName}")
     Administrator queryAdministratorsByAdminName(String adminName);
 
-    @Select("select * from user_table")
+    @Select("select * from admin_table")
     List<Administrator> queryAdministratorList();
 
     @Insert("insert into admin_table (admin_level, admin_name, admin_password, admin_number) " +
