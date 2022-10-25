@@ -55,8 +55,7 @@ public class AdministratorController {
     public String queryNormalUser(Model model) {
         List<NormalUser> normalUserList;
         normalUserList = normalUserService.queryNormalUserList();
-        System.out.println(normalUserList.get(0).getUserID());
-        model.addAttribute("tables", normalUserList);
+        model.addAttribute("normalUsers", normalUserList);
         return "/admin/user-list";
     }
 

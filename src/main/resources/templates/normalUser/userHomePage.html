@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,17 +55,21 @@
                         <span class="search-replace"></span>
                         <span class="caret"><!--icon--></span>
                     </label>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="item"><i class="ri-folder-add-line pr-3"></i>新建文件夹</div>
-                        </li>
-                        <li>
-                            <div class="item"><i class="ri-file-upload-line pr-3"></i>上传文件</div>
-                        </li>
-                        <li>
-                            <div class="item"><i class="ri-folder-upload-line pr-3"></i>上传文件夹</div>
-                        </li>
-                    </ul>
+                    <form th:method="post" enctype="multipart/form-data" th:action="@{uploadFile}">
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="item"><i class="ri-folder-add-line pr-3"></i>新建文件夹</div>
+                            </li>
+                            <li>
+                                <div class="item"><i class="ri-file-upload-line pr-3"></i>上传文件<input type="file" th:name="filename">
+                                    <button type="submit" value="提交" class="mt-2 btn btn-primary"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item"><i class="ri-folder-upload-line pr-3"></i>上传文件夹</div>
+                            </li>
+                        </ul>
+                    </form>
                 </div>
             </div>
             <nav class="iq-sidebar-menu">
@@ -388,8 +392,7 @@
                                             <div class="item"><i class="ri-file-upload-line pr-3"></i>上传文件</div>
                                         </li>
                                         <li>
-                                            <div class="item"><i class="ri-folder-upload-line pr-3"></i>上传文件夹
-                                            </div>
+                                            <div class="item"><i class="ri-folder-upload-line pr-3"></i>上传文件夹</div>
                                         </li>
                                     </ul>
                                 </div>

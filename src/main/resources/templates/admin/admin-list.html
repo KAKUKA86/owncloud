@@ -421,14 +421,6 @@
                                                    title="" data-original-title="删除"
                                                    th:onclick="'delUser('+${admin.adminId}+')'"><i
                                                         class="ri-delete-bin-line"></i></a>
-                                                <script>
-                                                    function delUser (id) {
-                                                        if (window.confirm("确认执行删除操作"))
-                                                            $.ajax({
-                                                                url: ""
-                                                            })
-                                                    }
-                                                </script>
                                             </div>
                                         </td>
                                     </tr>

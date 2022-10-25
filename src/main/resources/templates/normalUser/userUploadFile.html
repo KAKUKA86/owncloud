@@ -1,12 +1,14 @@
-﻿<!doctype html>
-<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+﻿
+
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>CloudBOX | Responsive Bootstrap 4 Admin Dashboard Template</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/images/favicon.ico"/>
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
 
     <link rel="stylesheet" href="/assets/css/backend.min.css">
     <link rel="stylesheet" href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
@@ -23,12 +25,10 @@
     <!--All Spreadsheet -->
     <link rel="stylesheet" href="/assets/vendor/doc-viewer/include/SheetJS/handsontable.full.min.css">
     <!--Image viewer-->
-    <link rel="stylesheet"
-          href="/assets/vendor/doc-viewer/include/verySimpleImageViewer/css/jquery.verySimpleImageViewer.css">
+    <link rel="stylesheet" href="/assets/vendor/doc-viewer/include/verySimpleImageViewer/css/jquery.verySimpleImageViewer.css">
     <!--officeToHtml-->
-    <link rel="stylesheet" href="/assets/vendor/doc-viewer/include/officeToHtml/officeToHtml.css">
-</head>
-<body class="  ">
+    <link rel="stylesheet" href="/assets/vendor/doc-viewer/include/officeToHtml/officeToHtml.css">  </head>
+<body class=" color-light ">
 <!-- loader Start -->
 <div id="loading">
     <div id="loading-center">
@@ -37,9 +37,10 @@
 <!-- loader END -->
 <!-- Wrapper Start -->
 <div class="wrapper">
+
     <div class="iq-sidebar  sidebar-default ">
         <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
-            <a href="/index" class="header-logo">
+            <a href="../index" class="header-logo">
                 <img src="/assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
                 <img src="/assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
             </a>
@@ -48,77 +49,88 @@
             </div>
         </div>
         <div class="data-scrollbar" data-scroll="1">
+            <div class="new-create select-dropdown input-prepend input-append">
+                <div class="btn-group">
+                    <label data-toggle="dropdown">
+                        <div class="search-query selet-caption"><i class="las la-plus pr-2"></i>新建</div>
+                        <span class="search-replace"></span>
+                        <span class="caret"><!--icon--></span>
+                    </label>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="item"><i class="ri-folder-add-line pr-3"></i>新建文件夹</div>
+                        </li>
+                        <li>
+                            <div class="item"><i class="ri-file-upload-line pr-3"></i>上传文件</div>
+                        </li>
+                        <li>
+                            <div class="item"><i class="ri-folder-upload-line pr-3"></i>上传文件夹</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <nav class="iq-sidebar-menu">
                 <ul id="iq-sidebar-toggle" class="iq-menu">
                     <li class="active">
-                        <a href="/user-list">
-                            <i class="las la-list-alt"></i><span>用户列表</span>
-                        </a>
-                    </li>
-                    <li class=" ">
-                        <a href="#otherpage" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                            <i class="lab la-wpforms iq-arrow-left"></i><span>other page</span>
-                            <i class="las la-angle-right iq-arrow-right arrow-active"></i>
-                            <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
-                        </a>
-                        <ul id="otherpage" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                            <li class="">
-                                <a href="admin-list">
-                                    <i class="las la-list-alt"></i><span>管理员列表</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="#pages-error" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                                    <i class="las la-exclamation-triangle"></i><span>Error</span>
-                                    <i class="las la-angle-right iq-arrow-right arrow-active"></i>
-                                    <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
-                                </a>
-                                <ul id="pages-error" class="iq-submenu collapse" data-parent="#otherpage">
-                                    <li class=" ">
-                                        <a href="pages-error.html">
-                                            <i class="las la-bomb"></i><span>Error 404</span>
-                                        </a>
-                                    </li>
-                                    <li class=" ">
-                                        <a href="pages-error-500.html">
-                                            <i class="las la-exclamation-circle"></i><span>Error 500</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class=" ">
-                        <a href="/index" class="">
-                            <i class="las la-home iq-arrow-left"></i><span>Dashboard</span>
+                        <a href="../index" class="">
+                            <i class="las la-home iq-arrow-left"></i><span>仪表盘</span>
                         </a>
                         <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
                     <li class=" ">
-                        <a href="page-files" class="">
-                            <i class="lar la-file-alt iq-arrow-left"></i><span>Files</span>
+                        <a href="#mydrive" class="collapsed" data-toggle="collapse" aria-expanded="false">
+                            <i class="las la-hdd"></i><span>我的存储空间</span>
+                            <i class="las la-angle-right iq-arrow-right arrow-active"></i>
+                            <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
+                        </a>
+                        <ul id="mydrive" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                            <li class=" ">
+                                <a href="page-alexa.html">
+                                    <i class="lab la-blogger-b"></i><span>Alexa Workshop</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="page-android.html">
+                                    <i class="las la-share-alt"></i><span>Android</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="page-brightspot.html">
+                                    <i class="las la-icons"></i><span>Brightspot</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="page-ionic.html">
+                                    <i class="las la-icons"></i><span>Ionic Chat App</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class=" ">
+                        <a href="page-files.html" class="">
+                            <i class="lar la-file-alt iq-arrow-left"></i><span>文件</span>
                         </a>
                         <ul id="page-files" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
                     <li class=" ">
-                        <a href="page-folders" class="">
-                            <i class="las la-stopwatch iq-arrow-left"></i><span>Recent</span>
+                        <a href="page-folders.html" class="">
+                            <i class="las la-stopwatch iq-arrow-left"></i><span>最近处理</span>
                         </a>
                         <ul id="page-folders" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
                     <li class=" ">
-                        <a href="page-favourite" class="">
-                            <i class="lar la-star"></i><span>Favourite</span>
+                        <a href="page-favourite.html" class="">
+                            <i class="lar la-star"></i><span>收藏夹</span>
                         </a>
                         <ul id="page-fevourite" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
                     <li class=" ">
-                        <a href="page-delete" class="">
-                            <i class="las la-trash-alt iq-arrow-left"></i><span>Trash</span>
+                        <a href="page-delete.html" class="">
+                            <i class="las la-trash-alt iq-arrow-left"></i><span>回收站</span>
                         </a>
                         <ul id="page-delete" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
@@ -126,14 +138,14 @@
                 </ul>
             </nav>
             <div class="sidebar-bottom">
-                <h4 class="mb-3"><i class="las la-cloud mr-2"></i>Storage</h4>
-                <p>17.1 / 20 GB Used</p>
+                <h4 class="mb-3"><i class="las la-cloud mr-2"></i>存储</h4>
+                <p>已使用 17.1 / 20 GB</p>
                 <div class="iq-progress-bar mb-3">
                       <span class="bg-primary iq-progress progress-1" data-percent="67">
                       </span>
                 </div>
-                <p>75% Full - 3.9 GB Free</p>
-                <a href="#" class="btn btn-outline-primary view-more mt-4">Buy Storage</a>
+                <p>已用 75% - 剩余 3.9 GB</p>
+                <a href="#" class="btn btn-outline-primary view-more mt-4">购买存储空间</a>
             </div>
             <div class="p-3"></div>
         </div>
@@ -143,43 +155,42 @@
             <nav class="navbar navbar-expand-lg navbar-light p-0">
                 <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
                     <i class="ri-menu-line wrapper-menu"></i>
-                    <a href="index.html" class="header-logo">
+                    <a href="../index" class="header-logo">
                         <img src="/assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
                         <img src="/assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo"
                              alt="logo">
                     </a>
                 </div>
                 <div class="iq-search-bar device-search">
-
                     <form>
                         <div class="input-prepend input-append">
                             <div class="btn-group">
                                 <label class="dropdown-toggle searchbox" data-toggle="dropdown">
                                     <input class="dropdown-toggle search-query text search-input" type="text"
-                                           placeholder="Type here to search..."><span class="search-replace"></span>
+                                           placeholder="在这里输入进行搜索......"><span class="search-replace"></span>
                                     <a class="search-link" href="#"><i class="ri-search-line"></i></a>
                                     <span class="caret"><!--icon--></span>
                                 </label>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">
-                                        <div class="item"><i class="far fa-file-pdf bg-info"></i>PDFs</div>
+                                        <div class="item"><i class="far fa-file-pdf bg-info"></i>PDF文件</div>
                                     </a></li>
                                     <li><a href="#">
-                                        <div class="item"><i class="far fa-file-alt bg-primary"></i>Documents</div>
+                                        <div class="item"><i class="far fa-file-alt bg-primary"></i>Word文件</div>
                                     </a></li>
                                     <li><a href="#">
-                                        <div class="item"><i class="far fa-file-excel bg-success"></i>Spreadsheet</div>
+                                        <div class="item"><i class="far fa-file-excel bg-success"></i>电子表格</div>
                                     </a></li>
                                     <li><a href="#">
-                                        <div class="item"><i class="far fa-file-powerpoint bg-danger"></i>Presentation
+                                        <div class="item"><i class="far fa-file-powerpoint bg-danger"></i>介绍
                                         </div>
                                     </a></li>
                                     <li><a href="#">
-                                        <div class="item"><i class="far fa-file-image bg-warning"></i>Photos & Images
+                                        <div class="item"><i class="far fa-file-image bg-warning"></i>照片和图片
                                         </div>
                                     </a></li>
                                     <li><a href="#">
-                                        <div class="item"><i class="far fa-file-video bg-info"></i>Videos</div>
+                                        <div class="item"><i class="far fa-file-video bg-info"></i>视频</div>
                                     </a></li>
                                 </ul>
                             </div>
@@ -217,7 +228,7 @@
                                     <form action="#" class="searchbox p-2">
                                         <div class="form-group mb-0 position-relative">
                                             <input type="text" class="text search-input font-size-12"
-                                                   placeholder="type here to search...">
+                                                   placeholder="在这里输入进行搜索......">
                                             <a href="#" class="search-link"><i class="las la-search"></i></a>
                                         </div>
                                     </form>
@@ -256,7 +267,7 @@
                                         <div class="card-body p-0 ">
                                             <div class="p-3">
                                                 <a href="#" class="iq-sub-card pt-0"><i class="ri-settings-3-line"></i>
-                                                    Settings</a>
+                                                    设置</a>
                                                 <a href="#" class="iq-sub-card"><i class="ri-hard-drive-line"></i> Get
                                                     Drive for desktop</a>
                                                 <a href="#" class="iq-sub-card"><i class="ri-keyboard-line"></i>
@@ -275,7 +286,7 @@
                                     <div class="card mb-0">
                                         <div class="card-header d-flex justify-content-between align-items-center mb-0">
                                             <div class="header-title">
-                                                <h4 class="card-title mb-0">Profile</h4>
+                                                <h4 class="card-title mb-0">用户卡</h4>
                                             </div>
                                             <div class="close-data text-right badge badge-primary cursor-pointer "><i
                                                     class="ri-close-fill"></i></div>
@@ -285,16 +296,15 @@
                                                 <div class="cover-container text-center">
                                                     <div class="rounded-circle profile-icon bg-primary mx-auto d-block">
                                                         P
-                                                        <a href="">
-                                                        </a>
+                                                        <a href=""></a>
                                                     </div>
                                                     <div class="profile-detail mt-3">
                                                         <h5><a href="user-profile-edit.html">Panny Marco</a></h5>
                                                         <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                              data-cfemail="d7a7b6b9b9aebab6a5b4b897b0bab6bebbf9b4b8ba">[email&#160;protected]</a>
+                                                              data-cfemail="1c6c7d727265717d6e7f735c7b717d7570327f7371">[email&#160;protected]</a>
                                                         </p>
                                                     </div>
-                                                    <a href="auth-sign-in.html" class="btn btn-primary">Sign Out</a>
+                                                    <a href="auth-sign-in.html" class="btn btn-primary">登出</a>
                                                 </div>
                                                 <div class="profile-details mt-4 pt-4 border-top">
                                                     <div class="media align-items-center mb-3">
@@ -309,7 +319,7 @@
                                                             <p class="mb-0 font-size-12"><a
                                                                     href="/cdn-cgi/l/email-protection"
                                                                     class="__cf_email__"
-                                                                    data-cfemail="2a4b44444b475f46466a4d474b434604494547">[email&#160;protected]</a>
+                                                                    data-cfemail="7d1c13131c100811113d1a101c1411531e1210">[email&#160;protected]</a>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -325,7 +335,7 @@
                                                             <p class="mb-0 font-size-12"><a
                                                                     href="/cdn-cgi/l/email-protection"
                                                                     class="__cf_email__"
-                                                                    data-cfemail="d8b3b1b6bfa8b7b1b4b1b698bfb5b9b1b4f6bbb7b5">[email&#160;protected]</a>
+                                                                    data-cfemail="076c6e696077686e6b6e6947606a666e6b2964686a">[email&#160;protected]</a>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -341,7 +351,7 @@
                                                             <p class="mb-0 font-size-12"><a
                                                                     href="/cdn-cgi/l/email-protection"
                                                                     class="__cf_email__"
-                                                                    data-cfemail="751110031c11021a071b1007351218141c195b161a18">[email&#160;protected]</a>
+                                                                    data-cfemail="107475667974677f627e756250777d71797c3e737f7d">[email&#160;protected]</a>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -356,134 +366,11 @@
                 </div>
             </nav>
         </div>
-    </div>
-    <div class="content-page">
+    </div>    <div class="content-page">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between">
-                            <div class="header-title">
-                                <h4 class="card-title">用户列表</h4>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="row justify-content-between">
-                                <div class="col-sm-6 col-md-6">
-                                    <div id="user_list_datatable_info" class="dataTables_filter">
-                                        <form class="mr-3 position-relative">
-                                            <div class="form-group mb-0">
-                                                <input type="search" class="form-control" id="exampleInputSearch"
-                                                       placeholder="搜索" aria-controls="user-list-table">
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="user-list-files d-flex">
-                                        <a class="bg-primary" href="javascript:void();">
-                                            选项一
-                                        </a>
-                                        <a class="bg-primary" href="javascript:void();">
-                                            选项二
-                                        </a>
-                                        <a class="bg-primary" href="javascript:void();">
-                                            选项三
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="table-responsive">
-                                <table id="user-list-table" class="table table-striped table-bordered mt-4 " role="grid"
-                                       aria-describedby="user-list-page-info">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">角色画像</th>
-                                        <th scope="col">UID</th>
-                                        <th scope="col">用户名</th>
-                                        <th scope="col">文件审核通道</th>
-                                        <th scope="col">电话号码</th>
-                                        <th scope="col">注册时间</th>
-                                        <th scope="col">最后登录时间</th>
-                                        <th scope="col">操作</th>
-                                    </tr>
-                                    </thead>
-
-                                    <tbody>
-                                    <tr th:each="user:${normalUsers}">
-                                        <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                                                     src="/assets/images/user/01.jpg" alt="profile">
-                                        </td>
-                                        <td th:text="${user.userID}"></td>
-                                        <td th:text="${user.userName}"></td>
-                                        <td th:text="${user.userStorage}"></td>
-                                        <td th:text="${user.userPhoneNumber}"></td>
-                                        <td th:text="${user.userRegisterTimestamp}"></td>
-                                        <td th:text="${user.userLastLoginTimestamp}"></td>
-                                        <td>
-                                            <div class="flex align-items-center list-user-action">
-                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                   title="" data-original-title="修改" href="#"><i
-                                                        class="ri-pencil-line"></i></a>
-                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                   title="" data-original-title="删除"
-                                                   th:href="@{/deleteNormalUser(id=${user.userID})}"><i
-                                                        class="ri-delete-bin-line"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                                                     src="/assets/images/user/01.jpg" alt="profile">
-                                        </td>
-                                        <td>-1</td>
-                                        <td>Test(假数据)</td>
-                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                               data-cfemail="660708080715120e03150f0726010b070f0a4805090b">文件锁定</a>
-                                        </td>
-                                        <td><span class="badge iq-bg-primary">13000000000</span></td>
-                                        <td>2019/12/01</td>
-                                        <td>2019/12/01</td>
-                                        <td>
-                                            <div class="flex align-items-center list-user-action">
-                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                   title="" data-original-title="Add" href="#"><i
-                                                        class="ri-user-add-line"></i></a>
-                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                   title="" data-original-title="Edit" href="#"><i
-                                                        class="ri-pencil-line"></i></a>
-                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                   title="" data-original-title="Delete" href="#"><i
-                                                        class="ri-delete-bin-line"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="row justify-content-between mt-3">
-                                <div id="user-list-page-info" class="col-md-6">
-                                    <span>Showing 1 to 5 of 5 entries</span>
-                                </div>
-                                <div class="col-md-6">
-                                    <nav aria-label="Page navigation example">
-                                        <ul class="pagination justify-content-end mb-0">
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="#" tabindex="-1"
-                                                   aria-disabled="true">上一页</a>
-                                            </li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">下一页</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-12">
+                    1145141919810
                 </div>
             </div>
         </div>
@@ -556,7 +443,4 @@
     </div>
 </div>
 </body>
-<script>
-
-</script>
 </html>
