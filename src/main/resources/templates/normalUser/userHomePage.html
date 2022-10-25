@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -385,11 +385,18 @@
                                             <div class="item"><i class="ri-folder-add-line pr-3"></i>新建文件夹</div>
                                         </li>
                                         <li>
-                                            <div class="item"><i class="ri-file-upload-line pr-3"></i>上传文件</div>
+                                            <form class="item" id="uploadFile" action="/fileUpload" method="post" enctype="multipart/form-data"> <i class="ri-file-upload-line pr-3"></i>上传文件</form>
+                                            <script>
+                                                $(function () {
+                                                    $("#uploadFile").onclick(function () {
+                                                        var formData = new FormData();
+                                                        formData.append('file',$('#upload')[0],[0])
+                                                    })
+                                                })
+                                            </script>
                                         </li>
                                         <li>
-                                            <div class="item"><i class="ri-folder-upload-line pr-3"></i>上传文件夹
-                                            </div>
+                                            <div class="item"><i class="ri-folder-upload-line pr-3"></i>上传文件夹</div>
                                         </li>
                                     </ul>
                                 </div>
