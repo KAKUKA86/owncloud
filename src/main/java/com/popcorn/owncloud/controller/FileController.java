@@ -19,6 +19,7 @@ public class FileController {
     @RequestMapping("userHomePage")
     @ResponseBody
     public String uploadFile(@RequestParam ("filename") MultipartFile file){
+        System.out.println("测试进入方法");
         if (file.isEmpty()) {
             return "false";
         }
