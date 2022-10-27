@@ -27,6 +27,29 @@
           href="/assets/vendor/doc-viewer/include/verySimpleImageViewer/css/jquery.verySimpleImageViewer.css">
     <!--officeToHtml-->
     <link rel="stylesheet" href="/assets/vendor/doc-viewer/include/officeToHtml/officeToHtml.css">
+
+    <script>
+
+        function addFile (){
+            alert(1234)
+            let innerdiv = "<div>";
+            innerdiv += "<input type='file' name = 'fileupload' required" +
+                "<input type = 'button' value = '删除' onclick='remove(this)'>";
+            innerdiv += "</div>";
+            $("#file").append(innerdiv);
+            //上传按钮
+            $("#submit").css("display", "block");
+        }
+
+        //删除当前行
+        function remove(obj) {
+            $(obj).parent().remove();
+            //隐藏上传按钮
+            if ($("#file div").length == 0) {
+                $("#submit").css("display", "none");
+            }
+        }
+    </script>
 </head>
 <body class="  ">
 <!-- loader Start -->
@@ -55,32 +78,22 @@
                         <span class="search-replace"></span>
                         <span class="caret"><!--icon--></span>
                     </label>
+
                     <form method="post" enctype="multipart/form-data" th:action="@{/uploadFile}">
                         <ul class="dropdown-menu">
                             <li>
                                 <div class="item"><i class="ri-folder-add-line pr-3"></i>新建文件夹</div>
                             </li>
                             <li>
-                                <div class="item"><i class="ri-file-upload-line pr-3"></i>上传文件<input type="button" value="添加文件" onclick="add()">
-                                    <input type="submit" class="mt-2 btn btn-primary" value="上传" style="display: none">
-                                    <script type="javascript">
-                                        function add() {
-                                            let innerdiv = "<div>";
-                                            innerdiv += "<input type='file' name = 'fileupload' required" +
-                                                "<input type = 'button' value = '删除' onclick='remove(this)'>";
-                                            innerdiv += "</div>"
-                                            $("#file").append(innerdiv);
-                                            //上传按钮
-                                            $("#submit").css("display","block");
-                                        }
-                                        //删除当前行
-                                        function remove(obj) {
-                                            $(obj).parent().remove();
-                                            if($("#file div").length == 0) {
-                                                $("#submit").css("display","none");
-                                            }
-                                        }
-                                    </script>
+                                <div class="item"><i class="ri-file-upload-line pr-3"></i>上传文件<input type="button"
+                                                                                                         value="添加文件"
+                                                                                                         onclick="addFile()">
+                                    <div th:value="文件上传区域" id = "file"></div>
+                                    <input id = "submit" type="submit" class="mt-2 btn btn-primary" value="上传"
+                                           style="display: none">
+                                    <div th:if="${status}" th:text="${status}" class="alert text-white bg-primary">
+                                        上传成功
+                                    </div>
                                 </div>
                             </li>
                             <li>
