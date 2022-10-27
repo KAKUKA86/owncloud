@@ -8,9 +8,7 @@ import com.popcorn.owncloud.service.AdministratorService;
 import com.popcorn.owncloud.service.NormalUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -80,25 +78,27 @@ public class AdministratorController {
         return result.toJSONString();
     }
 
-    @PostMapping("/deleteAdminUser")
-    @ResponseBody
-    public String deleteAdminUser(HttpServletRequest request) {
-        String[] adminIds = request.getParameterValues("ids");
-        for (String adminId : adminIds) {
-            administratorService.deleteAdminUser(Integer.parseInt(adminId));
-        }
-        JSONObject result = new JSONObject();
-        result.put("state", "success");
-        return result.toJSONString();
+    @GetMapping("/deleteAdminUser")
+    public String deleteAdminUser(@RequestParam("id") int id) {
+        administratorService.deleteAdminUser(id);
+        return "redirect:/admin/admin-list";
     }
 
-    @PostMapping("/updateAdminUser")
-    @ResponseBody
-    public String updateAdminUser(Administrator administrator) {
-        int cnt = administratorService.updateAdmin(administrator);
-        JSONObject result = new JSONObject();
-        if (cnt > 0)
-            result.put("state", "success");
-        return result.toJSONString();
+    @GetMapping("/toEditPage")
+    public String toEditPage(Model model, int id) {
+        Administrator administrator = administratorService.queryAdministratorByAdminId(id);
+        model.addAttribute("administrator", administrator);
+        return "admin/adminEdit";
+    }
+
+    @RequestMapping("/editAdminUser")
+    public String editAdminUser(Administrator administrator) {
+        System.out.println(administrator.getAdminId());
+        System.out.println(administrator.getAdminName());
+        System.out.println(administrator.getAdminPassword());
+        System.out.println(administrator.getAdminLevel());
+        System.out.println(administrator.getAdminPhoneNumber());
+        administratorService.updateAdmin(administrator);
+        return "redirect:/admin/admin-list";
     }
 }

@@ -2,7 +2,10 @@ package com.popcorn.owncloud.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -12,14 +15,13 @@ import java.util.UUID;
 
 @Controller
 public class FileController {
-    @RequestMapping("userHomePage")
-    public String uploadFile(Model model) {
+    @GetMapping("userHomePage")//get
+    public String uploadFile() {
         return "normalUser/userHomePage";
     }
 
-    @RequestMapping("/uploadFile")
-    public String fileUpload(MultipartFile[] multipartFiles, Model model) {
-        System.out.println("进入函数");
+    @PostMapping("/uploadFile")//post
+    public String fileUpload(@RequestParam("uploadFile") MultipartFile[] multipartFiles, Model model) {
         for (MultipartFile file : multipartFiles) {
             String filename = file.getOriginalFilename();
             //重命名
@@ -38,7 +40,7 @@ public class FileController {
             }
         }
         model.addAttribute("status", "上传成功");
-        return "/normalUser/userHomePage";
+        return "normalUser/userHomePage";
     }
 }
 

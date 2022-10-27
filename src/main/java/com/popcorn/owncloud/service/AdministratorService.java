@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface AdministratorService {
     Administrator queryAdministratorsByAdminName(String adminName);
+    Administrator queryAdministratorByAdminId(int adminId);
 
     List<Administrator> queryAdministratorList();
 
@@ -14,4 +15,5 @@ public interface AdministratorService {
     void deleteAdminUser(Integer adminId);
 
     int updateAdmin(Administrator administrator);
+
 }

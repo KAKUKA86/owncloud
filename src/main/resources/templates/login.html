@@ -124,9 +124,8 @@
             dataType: "json",
             success: function (data) {
                 if(data.state==="success"){
-                    alert(123);
                     alert("登录操作成功");
-                    window.location.href="index";
+                    window.location.href="normalUser/userHomePage";
                 }
                 if (data.state==="error") {
                     alert("用户名或密码错误");

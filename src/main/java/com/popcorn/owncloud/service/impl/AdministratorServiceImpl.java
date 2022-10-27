@@ -18,6 +18,11 @@ public class AdministratorServiceImpl implements AdministratorService {
     }
 
     @Override
+    public Administrator queryAdministratorByAdminId(int adminId) {
+        return administratorMapper.queryAdministratorsByAdminId(adminId);
+    }
+
+    @Override
     public List<Administrator> queryAdministratorList() {
         return administratorMapper.queryAdministratorList();
     }
