@@ -1,6 +1,11 @@
 package com.popcorn.owncloud.controller;
 
 import com.popcorn.owncloud.service.FileService;
+import org.apache.commons.io.FileUtils;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,11 +26,18 @@ public class FileController {
 
     @Resource
     private FileService service;
+
     @GetMapping("userHomePage")//get
     public String uploadFile() {
         return "normalUser/userHomePage";
     }
 
+    /**
+     * 文件下载
+     * @param multipartFiles 多文件缓存
+     * @param model
+     * @return
+     */
     @PostMapping("/uploadFile")//post
     public String fileUpload(@RequestParam("uploadFile") MultipartFile[] multipartFiles, Model model) {
         com.popcorn.owncloud.bean.File saveFile = new com.popcorn.owncloud.bean.File();
@@ -56,11 +68,32 @@ public class FileController {
         model.addAttribute("status", "上传成功");
         return "/normalUser/userHomePage";
     }
+
+    /**
+     * 文件下载方法
+     * @param filename 文件名
+     * @param fileUrl 文件所在路径
+     * @return 下载状态
+     */
+    @GetMapping("/downloadFile")
+    public ResponseEntity<byte[]> downloadFile(String filename,String fileUrl) {
+        File file = new File(fileUrl + File.separator + filename);
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentDispositionFormData("attachment", filename);
+        httpHeaders.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        try {
+            return new ResponseEntity<>(FileUtils.readFileToByteArray(file), httpHeaders, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(e.getMessage().getBytes(), HttpStatus.EXPECTATION_FAILED);
+        }
+    }
+
     @RequestMapping("/normalUser/userFilePage")
     public String queryFile(Model model) {
         List<com.popcorn.owncloud.bean.File> fileList;
         fileList = service.queryFileList();
-        model.addAttribute("fileTables",fileList);
+        model.addAttribute("fileTables", fileList);
         return "/normalUser/userFilePage";
     }
 }

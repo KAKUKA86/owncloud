@@ -61,7 +61,7 @@
 <div class="wrapper">
     <div class="iq-sidebar  sidebar-default ">
         <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
-            <a href="../index" class="header-logo">
+            <a href="/index" class="header-logo">
                 <img src="/assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
                 <img src="/assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
             </a>
@@ -108,22 +108,22 @@
             </div>
             <nav class="iq-sidebar-menu">
                 <ul id="iq-sidebar-toggle" class="iq-menu">
-                    <li class="active">
-                        <a href="#" class="">
+                    <li class=" ">
+                        <a href="/userHomePage" class="">
                             <i class="las la-home iq-arrow-left"></i><span>仪表盘</span>
                         </a>
                         <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
-                    <li class=" ">
+                    <li class="active">
                         <a href="#mydrive" class="collapsed" data-toggle="collapse" aria-expanded="false">
                             <i class="las la-hdd"></i><span>我的存储空间</span>
                             <i class="las la-angle-right iq-arrow-right arrow-active"></i>
                             <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
                         </a>
                         <ul id="mydrive" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                            <li class=" ">
-                                <a href="page-alexa.html">
+                            <li class="active">
+                                <a href="#">
                                     <i class="lab la-blogger-b"></i><span>默认存储表</span>
                                 </a>
                             </li>
@@ -469,9 +469,9 @@
                                         <td>
                                             <div class="flex align-items-center list-user-action">
                                                 <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                   title="" data-original-title="修改"
-                                                   href="#"><i
-                                                        class="ri-pencil-line"></i></a>
+                                                   title="" data-original-title="下载"
+                                                   th:href="@{/downloadFile(filename = ${file.fileName}, fileUrl = ${file.fileUrl})}"><i
+                                                        class="ri-arrow-down-line"></i></a>
                                                 <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
                                                    title="" data-original-title="删除"
                                                    href="#"><i
