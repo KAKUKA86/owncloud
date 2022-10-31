@@ -10,6 +10,8 @@ import java.util.List;
 public interface NormalUserService {
     NormalUser queryNormalUsersByUserName(String username);
 
+    NormalUser queryNormalUsersByUserId(int id);
+
     Integer userSigIn(NormalUser normalUser);
 
     void addedLogonTimestamp(NormalUser normalUser);
@@ -17,4 +19,6 @@ public interface NormalUserService {
     List<NormalUser> queryNormalUserList();
 
     void deleteUserById(Integer userId);
+
+
 }

@@ -61,7 +61,6 @@ public class AdministratorController {
     public String queryAdminUser(Model model) {
         List<Administrator> administratorList;
         administratorList = administratorService.queryAdministratorList();
-        System.out.println(administratorList.get(0).getAdminPhoneNumber());
         model.addAttribute("tables", administratorList);
         return "/admin/admin-list";
     }
@@ -90,14 +89,21 @@ public class AdministratorController {
         model.addAttribute("administrator", administrator);
         return "admin/adminEdit";
     }
+    @GetMapping("/toEditNormalUserPage")
+    public String toEditNormalUserPage (Model model,int id) {
+        NormalUser normalUser = normalUserService.queryNormalUsersByUserId(id);
+        model.addAttribute("normalUser",normalUser);
+        return "admin/normalUserEdit";
+
+    }
 
     @RequestMapping("/editAdminUser")
     public String editAdminUser(Administrator administrator) {
-        System.out.println(administrator.getAdminId());
-        System.out.println(administrator.getAdminName());
-        System.out.println(administrator.getAdminPassword());
-        System.out.println(administrator.getAdminLevel());
-        System.out.println(administrator.getAdminPhoneNumber());
+        System.out.println("adminId: " + administrator.getAdminId());
+        System.out.println("adminName:" + administrator.getAdminName());
+        System.out.println("adminPassword: " + administrator.getAdminPassword());
+        System.out.println("adminLevel: " + administrator.getAdminLevel());
+        System.out.println("adminPhone: " + administrator.getAdminPhoneNumber());
         administratorService.updateAdmin(administrator);
         return "redirect:/admin/admin-list";
     }

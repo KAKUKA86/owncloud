@@ -63,7 +63,7 @@
                         </a>
                         <ul id="otherpage" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                             <li class="active">
-                                <a href="admin/admin-list">
+                                <a href="/admin/admin-list">
                                     <i class="las la-list-alt"></i><span>管理员列表</span>
                                 </a>
                             </li>
@@ -381,10 +381,10 @@
                                         <th scope="col">操作</th>
                                     </tr>
                                     </thead>
-
                                     <tbody>
                                     <form th:action="@{/editAdminUser}" th:object="${administrator}" method="post">
                                         <td th:text="${administrator.adminId}"></td>
+                                        <input type="text" name="adminId" style="display: none" th:value="*{adminId}" id="adminiId">
                                         <td>
                                             <input type="text" class="form-control"
                                                    name="adminName"
@@ -400,11 +400,8 @@
                                                    placeholder="密码">
                                         </td>
                                         <td>
-                                            <select class="form-control"
-                                                    th:value="*{adminLevel}">
-                                                <option value="0">0</option>
-                                                <option value="1">1</option>
-                                            </select>
+                                            <input type="radio" name="adminLevel" th:value="0"> 0 <br>
+                                            <input type="radio" name="adminLevel" th:value="1"> 1
                                         </td>
                                         <td>
                                             <input type="text" class="form-control"
@@ -518,4 +515,8 @@
     </div>
 </div>
 </body>
+<script>
+    let adminId = $("#adminiId").val();
+    console.log(adminId)
+</script>
 </html>

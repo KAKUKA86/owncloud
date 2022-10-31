@@ -20,6 +20,11 @@ public class NormalUserServiceImpl implements NormalUserService {
     }
 
     @Override
+    public NormalUser queryNormalUsersByUserId(int id) {
+        return userMapper.queryNormalUsersByUserID(id);
+    }
+
+    @Override
     public Integer userSigIn(NormalUser normalUser) {
         return userMapper.addNewNormalUser(normalUser);
     }

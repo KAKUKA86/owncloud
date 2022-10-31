@@ -20,4 +20,7 @@ public interface NormalUserMapper {
     List<NormalUser> queryNormalUserList();
     @Delete("delete from user_table where user_id = #{userId}")
     void deleteUserById(Integer userId);
+
+    @Select("select * from user_table where user_id = #{userID}")
+    NormalUser queryNormalUsersByUserID(int id);
 }

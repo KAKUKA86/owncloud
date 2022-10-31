@@ -22,7 +22,8 @@ public interface AdministratorMapper {
     @Delete("delete from admin_table where admin_id = #{adminId}")
     void deleteAdmin(Integer adminId);
 
-    @Update("update admin_table set admin_level = #{adminLevel}, admin_name = #{adminName}, admin_password = #{adminPassword} admin_phone_number = #{adminPhoneNumber} " +
+    @Update("update admin_table set admin_level = #{adminLevel}, admin_phone_number = #{adminPhoneNumber}, admin_name = #{adminName}, " +
+            "admin_password = #{adminPassword} " +
             "where admin_id = #{adminId}")
     int updateAdminUser(Administrator administrator);
 

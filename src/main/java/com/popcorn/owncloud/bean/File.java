@@ -15,12 +15,10 @@ public class File {
      */
     Integer fileId;
     String fileName;
-    Integer fileTimestamp;
+    Long fileTimestamp;
     String fileUrl;
     String fileType;
-    Double fileSize;
-    Integer userId;
-
+    Long fileSize;
 
     public Integer getFileId() {
         return fileId;
@@ -30,11 +28,11 @@ public class File {
         this.fileId = fileId;
     }
 
-    public Integer getFileTimestamp() {
+    public Long getFileTimestamp() {
         return fileTimestamp;
     }
 
-    public void setFileTimestamp(Integer fileTimestamp) {
+    public void setFileTimestamp(Long fileTimestamp) {
         this.fileTimestamp = fileTimestamp;
     }
 
@@ -44,14 +42,6 @@ public class File {
 
     public void setFileUrl(String fileUrl) {
         this.fileUrl = fileUrl;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     public String getFileName() {
@@ -70,11 +60,11 @@ public class File {
         this.fileType = fileType;
     }
 
-    public Double getFileSize() {
+    public Long getFileSize() {
         return fileSize;
     }
 
-    public void setFileSize(Double fileSize) {
+    public void setFileSize(Long fileSize) {
         this.fileSize = fileSize;
     }
 }

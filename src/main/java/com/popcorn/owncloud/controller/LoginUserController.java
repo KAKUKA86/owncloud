@@ -6,9 +6,11 @@ import com.popcorn.owncloud.bean.NormalUser;
 import com.popcorn.owncloud.service.AdministratorService;
 import com.popcorn.owncloud.service.NormalUserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
@@ -39,7 +41,9 @@ public class LoginUserController {
     }
 
     @RequestMapping("/login")
-    public String login() {
+    public String loginPage(Model model) {
+        NormalUser normalUser = new NormalUser();
+        model.addAttribute("loginUser", normalUser);
         return "login";
     }
 
@@ -47,6 +51,19 @@ public class LoginUserController {
      * 登录验证模块
      */
 
+//    @PostMapping("/userLogin")
+//    public  String userLogin(NormalUser normalUser){
+//        NormalUser checkUser = normalUserService.queryNormalUsersByUserName(normalUser.getUserName());
+//        if (checkUser == null) {
+//            return  "redirect:userLogin";
+//        }
+//        if (!Objects.equals(normalUser.getUserPassword(), checkUser.getUserPassword())){
+//            return "redirect:userLogin";
+//        }
+//        checkUser.setUserLastLoginTimestamp(System.currentTimeMillis());
+//        normalUserService.addedLogonTimestamp(checkUser);
+//        return "";
+//    }
     @PostMapping("/userLogin")
     @ResponseBody
     public String userLogin(HttpServletRequest request) {
@@ -116,9 +133,9 @@ public class LoginUserController {
             result.put("state", "error");
             return result.toJSONString();
         }
-        if (!Objects.equals(adminPassword, administrator.getAdminPassword())){
+        if (!Objects.equals(adminPassword, administrator.getAdminPassword())) {
             System.out.println("错误二");
-            result.put("state","error");
+            result.put("state", "error");
             return result.toJSONString();
         }
         result.put("state", "success");
