@@ -75,4 +75,6 @@ public interface FileService {
 
     void setNewFile(com.popcorn.owncloud.bean.File saveFile);
     List<File> queryFileList();
+
+
 }

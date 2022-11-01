@@ -16,4 +16,5 @@ public interface AdministratorService {
 
     int updateAdmin(Administrator administrator);
 
+
 }

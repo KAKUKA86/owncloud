@@ -51,7 +51,6 @@ public class FileController {
             saveFile.setFileUrl(path);
             saveFile.setFileSize(file.getSize());
             saveFile.setFileTimestamp(System.currentTimeMillis());
-            System.out.println(file.getContentType());
             saveFile.setFileType(file.getContentType());
             File filePath = new File(path);
             if (!filePath.exists()) {

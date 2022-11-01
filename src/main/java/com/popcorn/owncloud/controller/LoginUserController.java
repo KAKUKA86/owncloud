@@ -35,10 +35,6 @@ public class LoginUserController {
         return "register";
     }
 
-    @RequestMapping("/index")
-    public String index() {
-        return "index";
-    }
 
     @RequestMapping("/login")
     public String loginPage(Model model) {

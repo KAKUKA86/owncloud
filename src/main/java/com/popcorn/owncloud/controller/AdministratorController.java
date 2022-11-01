@@ -3,8 +3,10 @@ package com.popcorn.owncloud.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.popcorn.owncloud.bean.Administrator;
+import com.popcorn.owncloud.bean.File;
 import com.popcorn.owncloud.bean.NormalUser;
 import com.popcorn.owncloud.service.AdministratorService;
+import com.popcorn.owncloud.service.FileService;
 import com.popcorn.owncloud.service.NormalUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,6 +46,9 @@ public class AdministratorController {
     @Resource
     private NormalUserService normalUserService;
 
+    @Resource
+    private FileService fileService;
+
     /**
      * 管理员普通用户查询
      *
@@ -65,9 +70,15 @@ public class AdministratorController {
         return "/admin/admin-list";
     }
 
-    /**
-     * level0管理员增删改查
-     */
+    @RequestMapping("/admin/adminFileAudit")
+    public String auditFile(Model model) {
+        List<File> fileList;
+        fileList = fileService.queryFileList();
+        model.addAttribute("files", fileList);
+        return "/admin/adminFileAudit";
+    }
+
+
     @PostMapping("/addAdminUser")
     @ResponseBody
     public String addAdminUser(Administrator administrator) {
@@ -89,10 +100,11 @@ public class AdministratorController {
         model.addAttribute("administrator", administrator);
         return "admin/adminEdit";
     }
+
     @GetMapping("/toEditNormalUserPage")
-    public String toEditNormalUserPage (Model model,int id) {
+    public String toEditNormalUserPage(Model model, int id) {
         NormalUser normalUser = normalUserService.queryNormalUsersByUserId(id);
-        model.addAttribute("normalUser",normalUser);
+        model.addAttribute("normalUser", normalUser);
         return "admin/normalUserEdit";
 
     }
@@ -107,4 +119,6 @@ public class AdministratorController {
         administratorService.updateAdmin(administrator);
         return "redirect:/admin/admin-list";
     }
+
+
 }
