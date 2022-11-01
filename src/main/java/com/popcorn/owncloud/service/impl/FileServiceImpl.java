@@ -1,28 +1,12 @@
 package com.popcorn.owncloud.service.impl;
 
 import com.popcorn.owncloud.action.FileMapper;
+import com.popcorn.owncloud.bean.CollectFile;
 import com.popcorn.owncloud.bean.File;
 import com.popcorn.owncloud.service.FileService;
-import org.apache.commons.fileupload.FileItem;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-
-import javax.servlet.http.HttpServletRequest;
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
@@ -43,6 +27,21 @@ public class FileServiceImpl implements FileService {
     @Override
     public List<File> queryFileList() {
         return mapper.queryFileList();
+    }
+
+    @Override
+    public File queryFileById(Integer fileId) {
+        return mapper.queryFileById(fileId);
+    }
+
+    @Override
+    public void insertCollectFile(File file) {
+        mapper.insertCollectFile(file);
+    }
+
+    @Override
+    public List<CollectFile> queryCollectFileList() {
+        return mapper.queryCollectFileList();
     }
 
 //    @Value("#{file.fileUrl}")

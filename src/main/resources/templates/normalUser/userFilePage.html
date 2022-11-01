@@ -97,7 +97,6 @@
                                                style="display: none">
                                     </div>
                                 </form>
-
                             </li>
                             <li>
                                 <div class="item"><i class="ri-folder-upload-line pr-3"></i>上传文件夹</div>
@@ -115,7 +114,7 @@
                         <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
-                    <li class="active">
+                    <li class=" ">
                         <a href="#mydrive" class="collapsed" data-toggle="collapse" aria-expanded="false">
                             <i class="las la-hdd"></i><span>我的存储空间</span>
                             <i class="las la-angle-right iq-arrow-right arrow-active"></i>
@@ -123,50 +122,22 @@
                         </a>
                         <ul id="mydrive" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                             <li class="active">
-                                <a href="#">
+                                <a href="/normalUser/userFilePage">
                                     <i class="lab la-blogger-b"></i><span>默认存储表</span>
                                 </a>
                             </li>
-                            <li class=" ">
-                                <a href="page-android.html">
-                                    <i class="las la-share-alt"></i><span>Android</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="page-brightspot.html">
-                                    <i class="las la-icons"></i><span>Brightspot</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="page-ionic.html">
-                                    <i class="las la-icons"></i><span>Ionic Chat App</span>
-                                </a>
-                            </li>
                         </ul>
                     </li>
-                    <li class=" ">
-                        <a href="page-files.html" class="">
-                            <i class="lar la-file-alt iq-arrow-left"></i><span>文件</span>
-                        </a>
-                        <ul id="page-files" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                        </ul>
-                    </li>
-                    <li class=" ">
-                        <a href="page-folders.html" class="">
-                            <i class="las la-stopwatch iq-arrow-left"></i><span>最近处理</span>
-                        </a>
-                        <ul id="page-folders" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                        </ul>
-                    </li>
-                    <li class=" ">
-                        <a href="page-favourite.html" class="">
+
+                    <li class="">
+                        <a href="/normalUser/userCollectFile" class="">
                             <i class="lar la-star"></i><span>收藏夹</span>
                         </a>
                         <ul id="page-fevourite" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
                     <li class=" ">
-                        <a href="page-delete.html" class="">
+                        <a href="#" class="">
                             <i class="las la-trash-alt iq-arrow-left"></i><span>回收站</span>
                         </a>
                         <ul id="page-delete" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
@@ -474,8 +445,16 @@
                                                         class="ri-arrow-down-line"></i></a>
                                                 <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
                                                    title="" data-original-title="删除"
-                                                   href="#"><i
+                                                   th:href="@{/deleteFile(fileId = ${file.fileId}, fileUrl = ${file.fileUrl})}"><i
                                                         class="ri-delete-bin-line"></i></a>
+                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
+                                                   title="" data-original-title="收藏"
+                                                   th:href="@{/collectFile(fileId = ${file.fileId})}"><i
+                                                        class="ri-star-line"></i></a>
+                                                <script th:inline="javascript">
+                                                    let myAlerted = [[${status}]];
+                                                    console.log(myAlerted);
+                                                </script>
                                             </div>
                                         </td>
                                     </tr>

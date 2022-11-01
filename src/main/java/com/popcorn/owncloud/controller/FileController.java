@@ -1,5 +1,6 @@
 package com.popcorn.owncloud.controller;
 
+import com.popcorn.owncloud.bean.CollectFile;
 import com.popcorn.owncloud.service.FileService;
 import org.apache.commons.io.FileUtils;
 import org.springframework.http.HttpHeaders;
@@ -34,6 +35,7 @@ public class FileController {
 
     /**
      * 文件下载
+     *
      * @param multipartFiles 多文件缓存
      * @param model
      * @return
@@ -70,12 +72,13 @@ public class FileController {
 
     /**
      * 文件下载方法
+     *
      * @param filename 文件名
-     * @param fileUrl 文件所在路径
+     * @param fileUrl  文件所在路径
      * @return 下载状态
      */
     @GetMapping("/downloadFile")
-    public ResponseEntity<byte[]> downloadFile(String filename,String fileUrl) {
+    public ResponseEntity<byte[]> downloadFile(String filename, String fileUrl) {
         File file = new File(fileUrl + File.separator + filename);
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentDispositionFormData("attachment", filename);
@@ -88,12 +91,40 @@ public class FileController {
         }
     }
 
+    @RequestMapping("/deleteFile")
+    public String deleteFile(Integer id, String fileUrl) {
+        File file = new File(fileUrl);
+        if (file.exists()) {
+            file.delete();
+            return "/normalUser/userHomePage";
+        }
+        return "/normalUser/userHomePage";
+    }
+
+    @RequestMapping("/collectFile")
+    public String collectFile(Integer fileId, Model model) {
+        new com.popcorn.owncloud.bean.File();
+        com.popcorn.owncloud.bean.File file;
+        file = service.queryFileById(fileId);
+        service.insertCollectFile(file);
+        model.addAttribute("status", "添加成功");
+        return "redirect:/normalUser/userFilePage";
+    }
+
     @RequestMapping("/normalUser/userFilePage")
     public String queryFile(Model model) {
         List<com.popcorn.owncloud.bean.File> fileList;
         fileList = service.queryFileList();
         model.addAttribute("fileTables", fileList);
         return "/normalUser/userFilePage";
+    }
+
+    @RequestMapping("/normalUser/userCollectFile")
+    public String userCollectFile(Model model) {
+        List<CollectFile> collectFiles;
+        collectFiles = service.queryCollectFileList();
+        model.addAttribute("collectTable",collectFiles);
+        return "/normalUser/userCollectFile";
     }
 }
 

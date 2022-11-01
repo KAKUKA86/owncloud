@@ -1,5 +1,6 @@
 package com.popcorn.owncloud.service;
 
+import com.popcorn.owncloud.bean.CollectFile;
 import com.popcorn.owncloud.bean.File;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -75,6 +76,8 @@ public interface FileService {
 
     void setNewFile(com.popcorn.owncloud.bean.File saveFile);
     List<File> queryFileList();
+    File queryFileById(Integer fileId);
+    void insertCollectFile(File file);
 
-
+    List<CollectFile> queryCollectFileList();
 }

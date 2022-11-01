@@ -1,5 +1,6 @@
 package com.popcorn.owncloud.action;
 
+import com.popcorn.owncloud.bean.CollectFile;
 import com.popcorn.owncloud.bean.File;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -18,4 +19,10 @@ public interface FileMapper {
 
     @Select("select * from file_table")
     List<File> queryFileList();
+    @Select("select * from file_table where file_id = #{fileId}")
+    File queryFileById(Integer fileId);
+    @Insert("insert into collect_table(file_id) values (#{fileId})")
+    void insertCollectFile(File file);
+    @Select("select * from collect_table")
+    List<CollectFile> queryCollectFileList();
 }
