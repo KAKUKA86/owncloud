@@ -20,5 +20,5 @@ public interface NormalUserService {
 
     void deleteUserById(Integer userId);
 
-
+    void updateNormalUser(NormalUser normalUser);
 }

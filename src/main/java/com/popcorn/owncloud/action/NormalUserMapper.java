@@ -23,4 +23,7 @@ public interface NormalUserMapper {
 
     @Select("select * from user_table where user_id = #{userID}")
     NormalUser queryNormalUsersByUserID(int id);
+    @Update("update user_table set user_name = #{userName}, user_storage = #{userStorage}, user_phone_number = #{userPhoneNumber} " +
+            "where user_id = #{userID}")
+    void updateNormalUser(NormalUser normalUser);
 }

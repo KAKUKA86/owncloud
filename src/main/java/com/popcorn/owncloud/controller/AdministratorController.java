@@ -35,10 +35,6 @@ public class AdministratorController {
      *
      * @return
      */
-    @RequestMapping("/admin/adminHomePage")
-    public String adminHomePage() {
-        return "/admin/adminHomePage";
-    }
 
     @Resource
     private AdministratorService administratorService;
@@ -118,6 +114,11 @@ public class AdministratorController {
         System.out.println("adminPhone: " + administrator.getAdminPhoneNumber());
         administratorService.updateAdmin(administrator);
         return "redirect:/admin/admin-list";
+    }
+    @RequestMapping("/editNormalUser")
+    public String editNormalUser(NormalUser normalUser) {
+        normalUserService.updateNormalUser(normalUser);
+        return "redirect:/admin/user-list";
     }
 
 

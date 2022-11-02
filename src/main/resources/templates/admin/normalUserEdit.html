@@ -364,7 +364,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between">
                             <div class="header-title">
-                                <h4 class="card-title">修改管理员页面</h4>
+                                <h4 class="card-title">修改普通用户页面</h4>
                             </div>
                         </div>
                         <div class="card-body">
@@ -389,6 +389,36 @@
                                                                      src="/assets/images/user/01.jpg" alt="profile">
                                         <td th:text="${normalUser.userID}"></td>
                                         <input type="text" name="userID" style="display:none;" th:value="*{userID}">
+                                        <td>
+                                            <input type="text" class="form-control"
+                                            name="userName"
+                                            id="userName"
+                                            th:value="*{userName}"
+                                            placeholder="用户名">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control"
+                                                   name="userStorage"
+                                                   id="userStorage"
+                                                   th:value="*{userStorage}"
+                                                   placeholder="用户空间">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control"
+                                                   name="userPhoneNumber"
+                                                   id="userPhoneNumber"
+                                                   th:value="*{userPhoneNumber}"
+                                                   placeholder="用户电话">
+                                        </td>
+                                        <td th:text="${normalUser.userRegisterTimestamp}"></td>
+                                        <input type="text" name="userRegisterTimestamp" style="display:none;" th:value="*{userRegisterTimestamp}">
+                                        <td th:text="${normalUser.userLastLoginTimestamp}"></td>
+                                        <input type="text" name="userLastLoginTimestamp" style="display:none;" th:value="*{userLastLoginTimestamp}">
+                                        <td>
+                                            <div class="flex align-items-center list-user-action">
+                                                <input type="submit" class="btn btn-info">
+                                            </div>
+                                        </td>
                                     </form>
 
                                     </tbody>

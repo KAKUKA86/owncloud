@@ -43,4 +43,9 @@ public class NormalUserServiceImpl implements NormalUserService {
     public void deleteUserById(Integer userId) {
         userMapper.deleteUserById(userId);
     }
+
+    @Override
+    public void updateNormalUser(NormalUser normalUser) {
+        userMapper.updateNormalUser(normalUser);
+    }
 }
